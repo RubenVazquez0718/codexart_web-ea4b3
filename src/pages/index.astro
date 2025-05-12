@@ -1,105 +1,115 @@
 ---
 // src/pages/index.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+const tabs = [
+    {
+        id: "idSectionOne",
+        title: "Digital ERP",
+        isActive: true,
+    },
+    {
+        id: "idSectionTwo",
+        title: "Diseño de pagina web",
+        isActive: false,
+    },
+    {
+        id: "idSectionThree",
+        title: "Dominios y correos para empresas",
+        isActive: false,
+    },
+    {
+        id: "idSectionFour",
+        title: "Soporte técnico",
+        isActive: false,
+    },
+];
+
+const selectedOption = (id: string) => {
+    tabs.map((tab) => ({ ...tab, isActive: tab.id === id }));
+};
 ---
 
 <Layout title="Inicio">
-    <section class="primary-section">
-        <div class="primary-section-content">
-            <h1>Desarrollo de Software Innovador</h1>
-            <p>Soluciones tecnológicas a medida para tu negocio</p>
-            <a href="/contactanos" class="cta-button">Contáctanos</a>
+    <section class="index-section">
+        <div class="index-section-content">
+            <h1 class="text-4xl mb-4">Desarrollo de soluciones tecnológicas</h1>
+            <p class="text-lg mb-4">
+                Soluciones tecnológicas a medida para tu pequeño y mediano
+                negocio
+            </p>
+
+            <a href="/contactanos" class="cdx-button">
+                <i class="fa-solid fa-up-right-from-square px-0 mr-2"></i>
+                Contáctanos
+            </a>
         </div>
     </section>
-    
-    <section class="features">
-        <h2>Nuestros Valores</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Innovación</h3>
-                <p>Nos mantenemos a la vanguardia tecnológica para ofrecer las mejores soluciones.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-cogs"></i>
-                <h3>Calidad</h3>
-                <p>Desarrollamos software robusto y confiable con los más altos estándares.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-users"></i>
-                <h3>Enfoque al Cliente</h3>
-                <p>Entendemos tus necesidades para crear soluciones que realmente agreguen valor.</p>
-            </div>
+
+    <section class="index-soluciones">
+        <h2>Nuestras soluciones</h2>
+
+        <!-- onclick={() => handleTabClick(tab.id)} -->
+        <div
+            class="bg-gray-200 rounded-full py-2 px-4 flex flex-auto gap-4 justify-around"
+            role="tablist"
+        >
+            {
+                tabs.map((tab) => (
+                    <a
+                        href={`#${tab.id}`}
+                        aria-current={tab.isActive ? "page" : "false"}
+                        class="whitespace-nowrap py-2 px-4 font-semibold rounded-full border-0 text-gray-700 aria-[current=page]:bg-cyan-600 aria-[current=page]:text-white transition-all duration-300 ease-in-out"
+                        role="tab"
+                    >
+                        {tab.title}
+                    </a>
+                ))
+            }.
+        </div>
+
+        <div
+            class="mt-2 border border-slate-200 shadow shadow-cyan-200 min-h-96"
+        >
+            {
+                tabs.map((tab, index) => (
+                    <div
+                        class={
+                            tab.isActive && tab.id === "idSectionOne"
+                                ? "block"
+                                : "hidden"
+                        }
+                        role="tabpanel"
+                    >
+                        asdasd
+                    </div>
+                ))
+            }
         </div>
     </section>
 </Layout>
 
-<style>
-    .primary-section {
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('src/assets/public/fondo_computer.jpg');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 5rem 2rem;
-        text-align: center;
-    }
-    
-    .primary-section h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .primary-section p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .cta-button {
-        background-color: #0066cc;
-        color: white;
-        padding: 0.8rem 2rem;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s;
-    }
-    
-    .cta-button:hover {
-        background-color: #0055aa;
-    }
-    
-    .features {
-        padding: 4rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .features h2 {
-        text-align: center;
-        margin-bottom: 3rem;
-        font-size: 2rem;
-    }
-    
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-    
-    .feature {
-        text-align: center;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    .feature i {
-        font-size: 2.5rem;
-        color: #0066cc;
-        margin-bottom: 1rem;
-    }
-    
-    .feature h3 {
-        margin-bottom: 1rem;
-    }
-</style>
+<script>
+    // Simple tab switching without React
+    document.querySelectorAll('[role="tab"]').forEach((tab) => {
+        tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetValue = tab.getAttribute("href")?.substring(1);
+            const targetId = targetValue ?? "";
+
+            // Hide all tab panels
+            document.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
+                panel.classList.add("hidden");
+            });
+
+            // Show target panel
+            document.getElementById(targetId)?.classList.remove("hidden");
+
+            // Update active tab styling
+            document.querySelectorAll('[role="tab"]').forEach((t) => {
+                t.setAttribute("aria-current", "false");
+            });
+            tab.setAttribute("aria-current", "page");
+        });
+    });
+</script>

@@ -1,24 +1,47 @@
 ---
 // src/components/Header.astro
-import SocialIcons from '../components/SocialIcons';
-import WhatsAppButton from '../components/WhatsAppButton';
-import '../styles/global.css';
+import SocialIcons from "../components/SocialIcons";
+import WhatsAppButton from "../components/WhatsAppButton";
 ---
 
-<header class="flex justify-between items-center py-4 px-8 bg-gray-50 shadow-sm">
+<header
+    class="flex justify-between items-center py-4 px-8 bg-gray-50 shadow-sm"
+>
     <div class="flex items-center">
-        <img src="src/assets/logos/codexart.svg" alt="CodexArt Logo" class="h-12" />
+        <img src="/logos/codexart.svg" alt="CodexArt Logo" class="h-12" />
     </div>
-    
+
     <nav class="hidden md:block">
         <ul class="flex space-x-8">
-            <li><a href="/" class="text-gray-800 font-medium hover:text-sky-600">Inicio</a></li>
-            <li><a href="/servicios" class="text-gray-800 font-medium hover:text-sky-600">Servicios</a></li>
-            <li><a href="/nosotros" class="text-gray-800 font-medium hover:text-sky-600">Nosotros</a></li>
-            <li><a href="/contactanos" class="text-gray-800 font-medium hover:text-sky-600">Contáctanos</a></li>
+            <li>
+                <a href="/" class="text-gray-800 font-medium hover:text-sky-600"
+                    >Inicio</a
+                >
+            </li>
+            <li>
+                <a
+                    href="/servicios"
+                    class="text-gray-800 font-medium hover:text-sky-600"
+                    >Servicios</a
+                >
+            </li>
+            <li>
+                <a
+                    href="/nosotros"
+                    class="text-gray-800 font-medium hover:text-sky-600"
+                    >Nosotros</a
+                >
+            </li>
+            <li>
+                <a
+                    href="/contactanos"
+                    class="text-gray-800 font-medium hover:text-sky-600"
+                    >Contáctanos</a
+                >
+            </li>
         </ul>
     </nav>
-    
+
     <div class="flex items-center space-x-4">
         <SocialIcons />
         <WhatsAppButton />
