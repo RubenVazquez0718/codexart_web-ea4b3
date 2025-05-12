@@ -68,23 +68,67 @@ const selectedOption = (id: string) => {
             }.
         </div>
 
-        <div
-            class="mt-2 border border-slate-200 shadow shadow-cyan-200 min-h-96"
-        >
-            {
-                tabs.map((tab, index) => (
-                    <div
-                        class={
-                            tab.isActive && tab.id === "idSectionOne"
-                                ? "block"
-                                : "hidden"
-                        }
-                        role="tabpanel"
-                    >
-                        asdasd
+        <div class="mt-6 rounded-lg border-slate-200 shadow shadow-cyan-200 min-h-96">
+            <div id="idSectionOne" class="transition-all ease-in w-full h-full p-6" role="tabpanel">
+                <div class="grid grid-cols-1 sm:grid-cols-2 w-full h-full">
+                    <div class="w-full h-full p-4">
+                        <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
+                        <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
+                        <div class="mt-4">
+                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
+                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
+                            ipsa ut sit placeat dolore magnam.
+                        </div>
                     </div>
-                ))
-            }
+                    <div class="flex flex-grow w-full h-full index-soluciones-image-sectionOne"></div>
+                </div>
+            </div>
+
+            <div id="idSectionTwo" class="hidden transition-all ease-in-out w-full h-full p-6" role="tabpanel">
+                <div class="grid grid-cols-1 sm:grid-cols-2 w-full h-full">
+                    <div class="flex flex-grow w-full h-full index-soluciones-image-sectionOne"></div>
+                    <div class="w-full h-full p-4">
+                        <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
+                        <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
+                        <div class="mt-4">
+                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
+                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
+                            ipsa ut sit placeat dolore magnam.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="idSectionThree" class="hidden transition-all ease-in-out w-full h-full p-6" role="tabpanel">
+                <div class="grid grid-cols-1 sm:grid-cols-2 w-full h-full">
+                    <div class="w-full h-full">
+                        <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
+                        <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
+                        <div class="mt-4">
+                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
+                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
+                            ipsa ut sit placeat dolore magnam.
+                        </div>
+                    </div>
+                    <div class="flex flex-grow w-full h-full index-soluciones-image-sectionOne"></div>
+                </div>
+            </div>
+
+            <div id="idSectionFour" class="hidden transition-all ease-in-out w-full h-fulll p-6" role="tabpanel">
+                <div class="grid grid-cols-1 sm:grid-cols-2 w-full h-full">
+                    <div class="w-full h-full">
+                        <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
+                        <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
+                        <div class="mt-4">
+                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
+                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
+                            ipsa ut sit placeat dolore magnam.
+                        </div>
+                    </div>
+                    <div class="flex flex-grow w-full h-full index-soluciones-image-sectionOne"></div>
+                </div>
+            </div>
+
         </div>
     </section>
 </Layout>
@@ -99,7 +143,11 @@ const selectedOption = (id: string) => {
 
             // Hide all tab panels
             document.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
-                panel.classList.add("hidden");
+                if (panel.id == targetId) {
+                    panel.classList.remove("hidden");
+                } else {
+                    panel.classList.add("hidden");
+                }
             });
 
             // Show target panel
