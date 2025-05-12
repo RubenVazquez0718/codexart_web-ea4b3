@@ -1,30 +1,26 @@
 ---
-import Logo from '../components/Logo.astro';
-
-const navItems = [
-    { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
-];
+// src/components/Header.astro
+import SocialIcons from '../components/SocialIcons';
+import WhatsAppButton from '../components/WhatsAppButton';
+import '../styles/global.css';
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
-    </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
-</nav>
+<header class="flex justify-between items-center py-4 px-8 bg-gray-50 shadow-sm">
+    <div class="flex items-center">
+        <img src="src/assets/logos/codexart.svg" alt="CodexArt Logo" class="h-12" />
+    </div>
+    
+    <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+            <li><a href="/" class="text-gray-800 font-medium hover:text-sky-600">Inicio</a></li>
+            <li><a href="/servicios" class="text-gray-800 font-medium hover:text-sky-600">Servicios</a></li>
+            <li><a href="/nosotros" class="text-gray-800 font-medium hover:text-sky-600">Nosotros</a></li>
+            <li><a href="/contactanos" class="text-gray-800 font-medium hover:text-sky-600">Contáctanos</a></li>
+        </ul>
+    </nav>
+    
+    <div class="flex items-center space-x-4">
+        <SocialIcons />
+        <WhatsAppButton />
+    </div>
+</header>

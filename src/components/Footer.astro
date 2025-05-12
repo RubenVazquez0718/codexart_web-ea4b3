@@ -1,9 +1,33 @@
 ---
-
+// src/components/Footer.astro
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <p class="text-sm">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p>
+<footer class="bg-gray-800 text-white pt-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="space-y-4">
+            <img src="src/assets/logos/codexart_white.svg" alt="CodexArt Logo" class="h-10" />
+            <p class="text-gray-300">Innovative Development</p>
+        </div>
+        
+        <div class="space-y-4">
+            <h3 class="text-lg font-semibold">Contacto</h3>
+            <p class="text-gray-300">Tabasco, México</p>
+            <p class="text-gray-300">RFC: CID240924518</p>
+            <p class="text-gray-300">contacto@codexart.com</p>
+        </div>
+        
+        <div class="space-y-4">
+            <h3 class="text-lg font-semibold">Enlaces rápidos</h3>
+            <ul class="space-y-2">
+                <li><a href="/" class="text-gray-300 hover:text-white">Inicio</a></li>
+                <li><a href="/servicios" class="text-gray-300 hover:text-white">Servicios</a></li>
+                <li><a href="/nosotros" class="text-gray-300 hover:text-white">Nosotros</a></li>
+                <li><a href="/contactanos" class="text-gray-300 hover:text-white">Contáctanos</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="bg-gray-900 text-center py-4 mt-8">
+        <p>&copy; {new Date().getFullYear()} CodexArt. Todos los derechos reservados.</p>
+    </div>
 </footer>
