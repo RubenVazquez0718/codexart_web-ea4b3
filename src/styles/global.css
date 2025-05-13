@@ -17,7 +17,7 @@ body {
 }
 
 .index-section {
-  background: url("/fondo_computer.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/fondo_computer.jpg");
   @apply bg-cover bg-center text-white px-20 py-20 text-center;
 }
 

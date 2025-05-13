@@ -6,7 +6,7 @@ const tabs = [
     {
         id: "idSectionOne",
         title: "Digital ERP",
-        isActive: false,
+        isActive: true,
     },
     {
         id: "idSectionTwo",
@@ -16,7 +16,7 @@ const tabs = [
     {
         id: "idSectionThree",
         title: "Dominios y correos para empresas",
-        isActive: true,
+        isActive: false,
     },
     {
         id: "idSectionFour",
@@ -69,7 +69,7 @@ const selectedOption = (id: string) => {
         </div>
 
         <div class="section-container">
-            <div id="idSectionOne" class="section-card hidden" role="tabpanel">
+            <div id="idSectionOne" class="section-card" role="tabpanel">
                 <div class="section-content">
                     <div class="w-full h-full p-4">
                         <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
@@ -99,7 +99,7 @@ const selectedOption = (id: string) => {
                 </div>
             </div>
 
-            <div id="idSectionThree" class="section-card " role="tabpanel">
+            <div id="idSectionThree" class="section-card hidden" role="tabpanel">
                 <div class="section-content">
                     <div class="w-full h-full p-4">
                         <h2 class="font-semibold"> Dominios y correos para empresas </h2>
