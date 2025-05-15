@@ -26,7 +26,7 @@ const currentPath = Astro.url.pathname;
     <div class="p-4 flex justify-between items-center border-b">
         <h2 class="text-md font-bold">Menú de navegación</h2>
         <button onclick="document.getElementById('side-menu').classList.remove('translate-x-0')"
-            class="p-1 text-gray-500 hover:text-gray-700 " aria-label="Cerrar menú">
+                class="p-1 text-gray-500 hover:text-gray-700 " aria-label="Cerrar menú">
             <i class="fa-solid fa-xmark text-lg"></i>
         </button>
     </div>
@@ -35,7 +35,6 @@ const currentPath = Astro.url.pathname;
         <ul class="space-y-2">
             {menuItems.map(item => {
                 const isActive = currentPath === item.href;
-                const id = currentPath === item.href ? item.name : "";
                 return (
                     <li class={(isActive ? 'bg-sky-400 rounded-lg p-1 text-white' : '') + ' cursor-pointer'} id={item.name}>
                         <i class={item.icon + ' mr-2'}></i>
@@ -69,5 +68,5 @@ const currentPath = Astro.url.pathname;
 
 <!-- Overlay para cerrar el menú -->
 <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
-  onclick="document.getElementById('side-menu').classList.remove('translate-x-0'); this.classList.add('hidden')"
+    onclick="document.getElementById('side-menu').classList.remove('translate-x-0'); this.classList.add('hidden')"
 ></div>

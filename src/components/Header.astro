@@ -6,13 +6,12 @@ import SideMenu from '../components/SideMenu.astro';
 
 const menuItems = [
     { name: 'Inicio',      href: '/',            icon: "fa-solid fa-house"          },
-    { name: 'Servicios',   href: '/servicios',   icon: "fa-solid fa-file-lines"     },
-    { name: 'Nosotros',    href: '/nosotros',    icon: "fa-solid fa-building"       },
-    { name: 'Contáctanos', href: '/contactanos', icon: "fa-solid fa-rectangle-list" },
+    { name: 'Servicios',   href: '/servicios/',   icon: "fa-solid fa-file-lines"     },
+    { name: 'Nosotros',    href: '/nosotros/',    icon: "fa-solid fa-building"       },
+    { name: 'Contáctanos', href: '/contactanos/', icon: "fa-solid fa-rectangle-list" },
 ];
 
 const currentPath = Astro.url.pathname;
-
 ---
 
 <header class="header-class" >
@@ -20,19 +19,13 @@ const currentPath = Astro.url.pathname;
         <img src="/logos/codexart.svg" alt="CodexArt Logo" class="h-8" />
     </div>
 
-
     <nav class="hidden md:block">
         <ul class="flex space-x-4">
-            <!-- <li> <a href="/" class="menu-option-bar"> Inicio </a> </li>
-            <li> <a href="/servicios" class="menu-option-bar"> Servicios </a> </li> 
-            <li> <a href="/nosotros" class="menu-option-bar"> Nosotros </a> </li>
-            <li> <a href="/contactanos" class="menu-option-bar"> Contáctanos </a> </li> -->
             {menuItems.map(item => {
                 const isActive = currentPath === item.href;
                 return (
                     <li class={(isActive ? 'border-b-2 border-b-sky-500' : '') + ' cursor-pointer pb-2 px-4 hover:bg-sky-100 hover:rounded-lg hover:text-blue-600'}  id={item.name}>
-                        <a href={item.href} class="side-menu-a-item"
-                            onclick="document.getElementById(`{isActive}`).classList.add('side-menu-a-item-active');">
+                        <a href={item.href} class="side-menu-a-item">
                             {item.name}
                         </a>
                     </li>
@@ -47,10 +40,7 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <div class="block md:hidden ml-auto">
-      <!-- Componente del menú móvil -->
-      <SideMenu />
+        <!-- Componente del menú móvil -->
+        <SideMenu />
     </div>
-
-    
-    <div> {currentPath} </div> 
 </header>
