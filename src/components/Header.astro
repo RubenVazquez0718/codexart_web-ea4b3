@@ -20,6 +20,7 @@ const currentPath = Astro.url.pathname;
         <img src="/logos/codexart.svg" alt="CodexArt Logo" class="h-8" />
     </div>
 
+
     <nav class="hidden md:block">
         <ul class="flex space-x-4">
             <!-- <li> <a href="/" class="menu-option-bar"> Inicio </a> </li>
@@ -28,9 +29,6 @@ const currentPath = Astro.url.pathname;
             <li> <a href="/contactanos" class="menu-option-bar"> Contáctanos </a> </li> -->
             {menuItems.map(item => {
                 const isActive = currentPath === item.href;
-                const id = currentPath === item.href ? item.name : "";
-                console.log("Current Page => ", currentPath);
-                console.log("Validate Page => ", item.href);
                 return (
                     <li class={(isActive ? 'border-b-2 border-b-sky-500' : '') + ' cursor-pointer pb-2 px-4 hover:bg-sky-100 hover:rounded-lg hover:text-blue-600'}  id={item.name}>
                         <a href={item.href} class="side-menu-a-item"
@@ -53,4 +51,6 @@ const currentPath = Astro.url.pathname;
       <SideMenu />
     </div>
 
+    
+    <div> {currentPath} </div> 
 </header>
