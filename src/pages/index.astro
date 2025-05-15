@@ -24,10 +24,6 @@ const tabs = [
         isActive: false,
     },
 ];
-
-const selectedOption = (id: string) => {
-    tabs.map((tab) => ({ ...tab, isActive: tab.id === id }));
-};
 ---
 
 <Layout title="Inicio">
@@ -51,7 +47,7 @@ const selectedOption = (id: string) => {
 
         <!-- onclick={() => handleTabClick(tab.id)} -->
         <div
-            class="bg-gray-200 rounded-full py-2 px-4 flex flex-auto gap-4 justify-around"
+            class="section-tabs"
             role="tablist"
         >
             {
@@ -71,13 +67,18 @@ const selectedOption = (id: string) => {
         <div class="section-container">
             <div id="idSectionOne" class="section-card" role="tabpanel">
                 <div class="section-content">
-                    <div class="w-full h-full p-4">
+                    <div class="w-full h-full sm:px-4 px-2 pb-4">
                         <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
                         <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
                         <div class="mt-4">
-                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
-                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
-                            ipsa ut sit placeat dolore magnam.
+                            <p class="mb-2">
+                                Nuestros sistemas de administrativos son hechos a la medida de las necesidades del cliente.
+                                Esto nos ayuda a brindar un sistema accesible para cada tipo de empresa independientemente de su nicho objetivo.
+                                Todo el set de herramientas perfectas para cualquier tipo de empresa y emprendimientos, grandes, medianas o pequeñas.
+                                Organiza de manera rápida tus clientes, obtén reportes con un solo clic de tus proveedores, administra tu personal y mantén al día tus unidades.
+                            </p>
+                            
+                            <span class="font-semibold"> "Si puedes imaginarlo... puedes programarlo". </span>
                         </div>
                     </div>
                     <div class="index-soluciones-image-one"></div>
@@ -87,13 +88,13 @@ const selectedOption = (id: string) => {
             <div id="idSectionTwo" class="section-card hidden" role="tabpanel">
                 <div class="section-content">
                     <div class="index-soluciones-image-two"></div>
-                    <div class="w-full h-full p-4">
+                    <div class="w-full h-full sm:px-4 px-2 pt-4">
                         <h2 class="font-semibold"> Diseño de paginas web </h2>
                         <h4 class="text-gray-400 font-medium"> Blogs personales / Paginas informativas </h4>
                         <div class="mt-4">
-                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
-                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
-                            ipsa ut sit placeat dolore magnam.
+                            Las paginas web son las caras de las empresas y de emprendedores en línea.
+                            ¡Date a conocer en internet! Nuestros expertos diseñaran la mejor pagina acorde a tu requerimientos.
+                            Sino tienes ideas para tu pagina web, NO TE PREOCUPES, nosotros te daremos propuestas y aportaremos ideas que te ayuden a esclarecer las necesidades de tu negocio. 
                         </div>
                     </div>
                 </div>
@@ -101,13 +102,19 @@ const selectedOption = (id: string) => {
 
             <div id="idSectionThree" class="section-card hidden" role="tabpanel">
                 <div class="section-content">
-                    <div class="w-full h-full p-4">
+                    <div class="w-full h-full sm:px-4 px-2 pb-4">
                         <h2 class="font-semibold"> Dominios y correos para empresas </h2>
                         <h4 class="text-gray-400 font-medium"> Dominio.com / correo@Dominio.com </h4>
                         <div class="mt-4">
-                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
-                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
-                            ipsa ut sit placeat dolore magnam.
+                            <div class="mb-4">
+                                Con el diseño de tu pagina web, se debe tener un espacio para colocarlo. 
+                                Todas las paginas en internet tienen un dominio... Y TU PUEDES OBTENER EL TUYO. 
+                                Obtén tu dominio administrado por nuestro equipo para colocar tu pagina web en línea.  
+                            </div>
+                            <div>
+                                Obtén además un correo personalizado para con tu nombre de dominio, 
+                                para que puedas usarlo para tus contactos y darle un toque mas profesional. 
+                            </div>
                         </div>
                     </div>
                     <div class="index-soluciones-image-three"></div>
@@ -117,13 +124,12 @@ const selectedOption = (id: string) => {
             <div id="idSectionFour" class="section-card hidden" role="tabpanel">
                 <div class="section-content" >
                     <div class="index-soluciones-image-four"></div>
-                    <div class="w-full h-full p-4">
+                    <div class="w-full h-full sm:px-4 px-2 pt-4">
                         <h2 class="font-semibold"> Soporte técnico especializado </h2>
                         <h4 class="text-gray-400 font-medium"> Capacitación y asistencia en nuestros sistemas </h4>
                         <div class="mt-4">
-                            Informacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero explicabo laudantium?
-                            Nemo, voluptate. Ratione, unde in consequuntur repudiandae beatae rem dolores deserunt suscipit
-                            ipsa ut sit placeat dolore magnam.
+                            Nuestro equipo esta preparado para brindar asistencia personalizada en cualquier duda que pueda surgir sobre el camino.
+                            Para los sistemas que ofrecemos, se brinda una capacitación por área para su uso.
                         </div>
                     </div>
                 </div>
