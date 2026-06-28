@@ -68,11 +68,11 @@ body {
 }
 
 .index-soluciones > .section-tabs {
-	@apply bg-gray-200 rounded-full py-2 px-4 flex flex-auto gap-4 justify-around overflow-auto;
+	@apply bg-gray-200 rounded-full py-2 px-4 flex flex-auto gap-4 justify-around overflow-auto max-w-7xl;
 }
 
 .index-soluciones > .section-container {
-	@apply mt-6 rounded-lg border-slate-200 shadow shadow-brand-200 min-h-96;
+	@apply mt-6 rounded-lg border-slate-200 shadow shadow-brand-200 min-h-96 max-w-7xl;
 }
 
 .index-soluciones > .section-container > .section-card {
