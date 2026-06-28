@@ -1,192 +1,152 @@
 ---
 // src/pages/contactanos.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+const contactos = [
+    {
+        icon: "fa-solid fa-location-dot",
+        title: "Ubicación",
+        value: "Tabasco, México",
+        href: null,
+    },
+    {
+        icon: "fa-solid fa-envelope",
+        title: "Correo electrónico",
+        value: "contacto@codexart.com",
+        href: "mailto:contacto@codexart.com",
+    },
+    {
+        icon: "fa-brands fa-whatsapp",
+        title: "WhatsApp",
+        value: "+52 993 183 0220",
+        href: "https://wa.me/529931830220",
+    },
+];
+
+const redes = [
+    { name: "Facebook", href: "https://facebook.com/codexart", icon: "fa-brands fa-facebook-f" },
+    { name: "Instagram", href: "https://instagram.com/codexart", icon: "fa-brands fa-instagram" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/codexart", icon: "fa-brands fa-linkedin-in" },
+    { name: "YouTube", href: "https://youtube.com/codexart", icon: "fa-brands fa-youtube" },
+];
 ---
 
 <Layout title="Contáctanos">
-    <section class="contact-hero">
+    <!-- Hero -->
+    <section class="contact-section">
         <h1>Contáctanos</h1>
         <p>Estamos listos para ayudarte con tu proyecto</p>
     </section>
-    
-    <section class="contact-content">
-        <div class="contact-form">
-            <h2>Envíanos un mensaje</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required />
+
+    <section class="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Formulario -->
+        <div>
+            <h2 class="text-3xl mb-8">Envíanos un mensaje</h2>
+            <form id="contact-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block mb-2 font-medium">Nombre</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required />
+
+                <div>
+                    <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 </div>
-                
-                <div class="form-group">
-                    <label for="subject">Asunto</label>
-                    <input type="text" id="subject" name="subject" required />
+
+                <div>
+                    <label for="subject" class="block mb-2 font-medium">Asunto</label>
+                    <input type="text" id="subject" name="subject" required
+                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
                 </div>
-                
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                <div>
+                    <label for="message" class="block mb-2 font-medium">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
                 </div>
-                
-                <button type="submit" class="submit-button">Enviar mensaje</button>
+
+                <button type="submit" class="cdx-button w-full sm:w-auto">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+                    Enviar mensaje
+                </button>
             </form>
         </div>
-        
-        <div class="contact-info">
-            <h2>Información de contacto</h2>
-            
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h3>Ubicación</h3>
-                    <p>Tabasco, México</p>
-                </div>
+
+        <!-- Información de contacto -->
+        <div>
+            <h2 class="text-3xl mb-8">Información de contacto</h2>
+
+            <div class="space-y-6">
+                {
+                    contactos.map((c) => (
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class={c.icon + " text-lg"} />
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">{c.title}</h3>
+                                {c.href ? (
+                                    <a href={c.href} target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-600 transition-colors">
+                                        {c.value}
+                                    </a>
+                                ) : (
+                                    <p class="text-gray-600">{c.value}</p>
+                                )}
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
-            
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h3>Correo electrónico</h3>
-                    <p>contacto@codexart.com</p>
-                </div>
-            </div>
-            
-            <div class="info-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <h3>Teléfono</h3>
-                    <p>+52 123 456 7890</p>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <h3>Síguenos</h3>
-                <div class="social-icons">
-                    <a href="https://facebook.com/codexart" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com/codexart" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/codexart" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://youtube.com/codexart" target="_blank" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+
+            <!-- WhatsApp destacado -->
+            <a
+                href="https://wa.me/529931830220"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-8 inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-md font-bold transition-colors hover:bg-emerald-700"
+            >
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Escríbenos por WhatsApp
+            </a>
+
+            <!-- Redes -->
+            <div class="mt-10">
+                <h3 class="font-semibold mb-4">Síguenos</h3>
+                <div class="flex gap-3">
+                    {
+                        redes.map((red) => (
+                            <a
+                                href={red.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={red.name}
+                                class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-gray-700 hover:text-white hover:bg-brand-600 transition-colors"
+                            >
+                                <i class={red.icon} />
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
         </div>
     </section>
 </Layout>
 
-<style>
-    .contact-hero {
-        background-color: #0066cc;
-        color: white;
-        padding: 4rem 2rem;
-        text-align: center;
-    }
-    
-    .contact-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .contact-content {
-        max-width: 1200px;
-        margin: 3rem auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
-    
-    .contact-form h2, .contact-info h2 {
-        margin-bottom: 2rem;
-        color: #333;
-    }
-    
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
-    
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-family: inherit;
-    }
-    
-    .submit-button {
-        background-color: #0066cc;
-        color: white;
-        padding: 0.8rem 2rem;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s;
-    }
-    
-    .submit-button:hover {
-        background-color: #0055aa;
-    }
-    
-    .info-item {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        align-items: center;
-    }
-    
-    .info-item i {
-        font-size: 1.5rem;
-        color: #0066cc;
-    }
-    
-    .info-item h3 {
-        margin-bottom: 0.3rem;
-    }
-    
-    .social-links {
-        margin-top: 2rem;
-    }
-    
-    .social-links h3 {
-        margin-bottom: 1rem;
-    }
-    
-    .social-icons {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .social-icons a {
-        color: #333;
-        font-size: 1.2rem;
-        transition: color 0.3s;
-    }
-    
-    .social-icons a:hover {
-        color: #0066cc;
-    }
-    
-    @media (max-width: 768px) {
-        .contact-content {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
+<script>
+    // Envío sin backend: arma un correo con los datos del formulario.
+    // Cuando tengas un servicio (Formspree, Resend, API propia), reemplaza esta lógica.
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = encodeURIComponent(String(data.get("name") ?? ""));
+        const email = encodeURIComponent(String(data.get("email") ?? ""));
+        const subject = encodeURIComponent(String(data.get("subject") ?? ""));
+        const message = encodeURIComponent(String(data.get("message") ?? ""));
+
+        const body = `Nombre: ${name}%0D%0ACorreo: ${email}%0D%0A%0D%0A${message}`;
+        window.location.href = `mailto:contacto@codexart.com?subject=${subject}&body=${body}`;
+    });
+</script>

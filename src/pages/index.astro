@@ -24,6 +24,103 @@ const tabs = [
         isActive: false,
     },
 ];
+
+// Razones para elegir Codexart.
+const porQue = [
+    {
+        icon: "fa-solid fa-bullseye",
+        title: "Soluciones a la medida",
+        text: "Sistemas construidos alrededor de tu operación, no plantillas genéricas.",
+    },
+    {
+        icon: "fa-solid fa-file-invoice-dollar",
+        title: "Especialización financiera y fiscal",
+        text: "Experiencia real en contabilidad, conciliación bancaria e integración con el SAT.",
+    },
+    {
+        icon: "fa-solid fa-code",
+        title: "Código limpio y escalable",
+        text: "Arquitecturas simples, rápidas y fáciles de hacer crecer con tu negocio.",
+    },
+    {
+        icon: "fa-solid fa-headset",
+        title: "Soporte y capacitación",
+        text: "Acompañamiento y capacitación por área para que aproveches tu sistema.",
+    },
+];
+
+// Proceso de trabajo (secuencia real, por eso va numerado).
+const proceso = [
+    {
+        num: "01",
+        title: "Análisis",
+        text: "Estudiamos tu operación y detectamos qué procesos conviene automatizar.",
+    },
+    {
+        num: "02",
+        title: "Propuesta",
+        text: "Te presentamos una solución concreta, con alcance y tiempos claros.",
+    },
+    {
+        num: "03",
+        title: "Desarrollo",
+        text: "Construimos el sistema con entregas y retroalimentación constante.",
+    },
+    {
+        num: "04",
+        title: "Entrega y capacitación",
+        text: "Ponemos todo en marcha y capacitamos a tu equipo por área.",
+    },
+];
+
+// Tipos de sistema que se pueden construir (desglose de la experiencia).
+const construir = [
+    {
+        icon: "fa-solid fa-cubes",
+        title: "Sistemas ERP",
+        text: "Gestión integral de clientes, proveedores, compras y personal.",
+    },
+    {
+        icon: "fa-solid fa-calculator",
+        title: "Sistemas contables",
+        text: "Control de ingresos, egresos y obligaciones fiscales.",
+    },
+    {
+        icon: "fa-solid fa-chart-line",
+        title: "Dashboards financieros",
+        text: "KPIs, utilidades, costos e indicadores en tiempo real.",
+    },
+    {
+        icon: "fa-solid fa-building-columns",
+        title: "Conciliación bancaria",
+        text: "Cruce de movimientos, CFDI y clasificación automática.",
+    },
+    {
+        icon: "fa-solid fa-file-invoice",
+        title: "Compras y RFQ",
+        text: "Cotizaciones, folios, notificaciones y correos automáticos.",
+    },
+    {
+        icon: "fa-solid fa-cloud-arrow-down",
+        title: "Integración con el SAT",
+        text: "Descarga masiva de XML y visualización de CFDI.",
+    },
+];
+
+// Stack de tecnologías con el que trabaja Codexart.
+const techStack = [
+    { name: ".NET / C#", icon: "fa-brands fa-microsoft" },
+    { name: "Angular", icon: "fa-brands fa-angular" },
+    { name: "TypeScript", icon: "fa-solid fa-code" },
+    { name: "Python", icon: "fa-brands fa-python" },
+    { name: "Tailwind CSS", icon: "fa-solid fa-wind" },
+    { name: "SQL Server", icon: "fa-solid fa-database" },
+    { name: "Docker", icon: "fa-brands fa-docker" },
+];
+
+// Clientes que han confiado en Codexart.
+// TODO: confirma los nombres / agrupaciones y, si tienes, sus logos en /public.
+const clientes = ["Gordo y San Pancho", "Ximar Construcciones"];
 ---
 
 <Layout title="Inicio">
@@ -42,13 +139,26 @@ const tabs = [
         </div>
     </section>
 
-    <section class="index-soluciones">
-        <!-- <h4>* AGREGAR STACK DE LENGUAJES QUE USAMOS.</h4>
-        <h4>* AGREGAR CLIENTES BANNER DE CLIENTES (GORDO Y SAN PANCHO Y XIMAR CONSTRUCCIONES).</h4>
-        <h4>* TAL VEZ MOVER EL ABAJO A SERVICIOS Y REEMPLAZAR POR ALGO MAS</h4>
-        <h4>* EN SERVICIOS CONVERTIR DE SELECTOR A SECCIONES PARA OCUPAR MAS ESPACIO</h4>
-        <h4>* AGREGAR ANIMACIONES DE ASTRO.</h4> -->
+    <!-- Por qué Codexart -->
+    <section class="bg-gray-50 px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-2">¿Por qué Codexart?</h2>
+        <p class="text-center text-gray-500 mb-12">
+            Tecnología cercana, pensada para empresas mexicanas.
+        </p>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {
+                porQue.map((item) => (
+                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 text-center">
+                        <i class={item.icon + " text-3xl text-brand-600 mb-4"} />
+                        <h3 class="font-semibold mb-2">{item.title}</h3>
+                        <p class="text-gray-600 text-sm">{item.text}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 
+    <section class="index-soluciones">
         <h2>Nuestras soluciones</h2>
 
         <div
@@ -60,13 +170,13 @@ const tabs = [
                     <a
                         href={`#${tab.id}`}
                         aria-current={tab.isActive ? "page" : "false"}
-                        class="whitespace-nowrap py-2 px-4 font-semibold rounded-full border-0 text-gray-700 aria-[current=page]:bg-cyan-600 aria-[current=page]:text-white transition-all duration-300 ease-in-out"
+                        class="whitespace-nowrap py-2 px-4 font-semibold rounded-full border-0 text-gray-700 aria-[current=page]:bg-brand-600 aria-[current=page]:text-white transition-all duration-300 ease-in-out"
                         role="tab"
                     >
                         {tab.title}
                     </a>
                 ))
-            }.
+            }
         </div>
 
         <div class="section-container">
@@ -82,7 +192,7 @@ const tabs = [
                                 Todo el set de herramientas perfectas para cualquier tipo de empresa y emprendimientos, grandes, medianas o pequeñas.
                                 Organiza de manera rápida tus clientes, obtén reportes con un solo clic de tus proveedores, administra tu personal y mantén al día tus unidades.
                             </p>
-                            
+
                             <span class="font-semibold"> "Si puedes imaginarlo... puedes programarlo". </span>
                         </div>
                     </div>
@@ -99,7 +209,7 @@ const tabs = [
                         <div class="mt-4">
                             Las paginas web son las caras de las empresas y de emprendedores en línea.
                             ¡Date a conocer en internet! Nuestros expertos diseñaran la mejor pagina acorde a tu requerimientos.
-                            Sino tienes ideas para tu pagina web, NO TE PREOCUPES, nosotros te daremos propuestas y aportaremos ideas que te ayuden a esclarecer las necesidades de tu negocio. 
+                            Sino tienes ideas para tu pagina web, NO TE PREOCUPES, nosotros te daremos propuestas y aportaremos ideas que te ayuden a esclarecer las necesidades de tu negocio.
                         </div>
                     </div>
                 </div>
@@ -112,13 +222,13 @@ const tabs = [
                         <h4 class="text-gray-400 font-medium"> Dominio.com / correo@Dominio.com </h4>
                         <div class="mt-4">
                             <div class="mb-4">
-                                Con el diseño de tu pagina web, se debe tener un espacio para colocarlo. 
-                                Todas las paginas en internet tienen un dominio... Y TU PUEDES OBTENER EL TUYO. 
-                                Obtén tu dominio administrado por nuestro equipo para colocar tu pagina web en línea.  
+                                Con el diseño de tu pagina web, se debe tener un espacio para colocarlo.
+                                Todas las paginas en internet tienen un dominio... Y TU PUEDES OBTENER EL TUYO.
+                                Obtén tu dominio administrado por nuestro equipo para colocar tu pagina web en línea.
                             </div>
                             <div>
-                                Obtén además un correo personalizado para con tu nombre de dominio, 
-                                para que puedas usarlo para tus contactos y darle un toque mas profesional. 
+                                Obtén además un correo personalizado para con tu nombre de dominio,
+                                para que puedas usarlo para tus contactos y darle un toque mas profesional.
                             </div>
                         </div>
                     </div>
@@ -138,6 +248,123 @@ const tabs = [
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section class="bg-gray-50 px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-2">Cómo trabajamos</h2>
+        <p class="text-center text-gray-500 mb-12">
+            Un proceso claro, de la idea a la puesta en marcha.
+        </p>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {
+                proceso.map((paso) => (
+                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6">
+                        <span class="block text-4xl font-bold text-brand-500 mb-3">{paso.num}</span>
+                        <h3 class="font-semibold mb-2">{paso.title}</h3>
+                        <p class="text-gray-600 text-sm">{paso.text}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Lo que puedo construir -->
+    <section class="px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-2">Lo que puedo construir para tu empresa</h2>
+        <p class="text-center text-gray-500 mb-12">
+            Sistemas administrativos y financieros probados en operación real.
+        </p>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                construir.map((item) => (
+                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 flex items-start gap-4">
+                        <div class="bg-brand-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class={item.icon} />
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">{item.title}</h3>
+                            <p class="text-gray-600 text-sm">{item.text}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Clientes -->
+    <section class="bg-gray-50 px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-2">Empresas que confían en Codexart</h2>
+        <p class="text-center text-gray-500 mb-10">
+            Negocios que ya trabajan con nuestras soluciones.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-6">
+            {
+                clientes.map((cliente) => (
+                    <div class="bg-white border border-slate-200 rounded-xl shadow shadow-brand-200 px-8 py-5 text-gray-700 font-semibold">
+                        {cliente}
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Franja de tecnologías -->
+    <section class="px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-2">Tecnologías que usamos</h2>
+        <p class="text-center text-gray-500 mb-10">
+            Herramientas modernas para construir soluciones rápidas, seguras y escalables.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+            {
+                techStack.map((tech) => (
+                    <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl shadow shadow-brand-200 px-5 py-3">
+                        <i class={tech.icon + " text-2xl text-brand-600"}></i>
+                        <span class="font-semibold text-gray-700">{tech.name}</span>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Detrás de Codexart -->
+    <section class="bg-gray-50 px-8 sm:px-16 py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl mb-4">Detrás de Codexart</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                Soy Rubén Vázquez, desarrollador Full Stack en Tabasco. Codexart es mi marca personal,
+                con la que pongo mi experiencia en software empresarial al servicio de tu negocio.
+            </p>
+            <a href="/nosotros" class="cdx-button">
+                <i class="fa-solid fa-user mr-2"></i>
+                Conóceme
+            </a>
+        </div>
+    </section>
+
+    <!-- Llamado a la acción final -->
+    <section class="px-8 sm:px-16 py-16">
+        <div class="max-w-4xl mx-auto text-center rounded-2xl shadow shadow-brand-200 border border-slate-200 p-10 sm:p-14 bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 text-white">
+            <h2 class="text-3xl font-bold mb-4">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+            <p class="text-lg mb-8 text-white/90">
+                Cuéntanos tu idea y diseñamos la solución a la medida de tu empresa.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contactanos" class="bg-white text-brand-700 px-8 py-3 rounded-md font-bold transition-colors hover:bg-gray-100">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+                    Contáctanos
+                </a>
+                <a
+                    href="https://wa.me/529931830220"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-emerald-600 text-white px-8 py-3 rounded-md font-bold transition-colors hover:bg-emerald-700"
+                >
+                    <i class="fa-brands fa-whatsapp mr-2"></i>
+                    Escríbenos por WhatsApp
+                </a>
             </div>
         </div>
     </section>

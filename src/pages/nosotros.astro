@@ -1,74 +1,101 @@
 ---
 // src/pages/nosotros.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+// Valores de la marca personal.
+const valores = [
+    {
+        icon: "fa-solid fa-bullseye",
+        title: "Soluciones a la medida",
+        text: "Cada empresa es distinta. Construyo herramientas que se ajustan a tu forma de trabajar, no al revés.",
+    },
+    {
+        icon: "fa-solid fa-code",
+        title: "Código limpio y mantenible",
+        text: "Arquitecturas simples y bien pensadas, optimizadas para el rendimiento y fáciles de hacer crecer.",
+    },
+    {
+        icon: "fa-solid fa-gauge-high",
+        title: "Calidad y disponibilidad",
+        text: "Lo que antes vivía en hojas de Excel, ahora corre en línea, disponible 24/7 los 365 días del año.",
+    },
+    {
+        icon: "fa-solid fa-handshake",
+        title: "Cercanía y acompañamiento",
+        text: "Trato directo de principio a fin: tú hablas con quien diseña y desarrolla tu proyecto.",
+    },
+];
 ---
 
 <Layout title="Nosotros">
-    <section class="about-hero">
-        <h1>Acerca de CodexArt</h1>
+    <!-- Hero -->
+    <section class="about-section">
+        <h1>Acerca de Codexart</h1>
         <p>Innovación y calidad en desarrollo de software</p>
     </section>
-    
-    <section class="about-content">
-        <div class="about-text">
-            <h2>Nuestra Historia</h2>
-            <p>Fundada en Tabasco, México, CodexArt nació con la visión de ofrecer soluciones tecnológicas innovadoras que impulsen el crecimiento de nuestros clientes. Desde nuestros inicios, nos hemos comprometido con la excelencia técnica y la satisfacción del cliente.</p>
-            <p>
-                Somos una empresa tabasqueña especializada en el diseño y desarrollo de sitios web y plataformas administrativas para la gestión de recursos empresariales. 
-                Lo que antes gestionabas en Excel, ahora podrás administrarlo de manera más eficiente y accesible en línea, disponible las 24 horas del día, los 365 días del año. 
-                Nuestro compromiso es ayudarte a optimizar procesos, mejorar la toma de decisiones y aumentar la productividad de tu empresa.
+
+    <!-- Presentación de la marca personal -->
+    <section class="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+            <h2 class="text-3xl mb-4">Hola, soy Rubén Vázquez</h2>
+            <h4 class="text-brand-600 font-semibold mb-6">Fundador de Codexart · Desarrollador Full Stack</h4>
+
+            <p class="mb-4">
+                Codexart es mi marca personal, nacida en Tabasco, México, con una idea clara:
+                acercar la tecnología a los pequeños y medianos negocios con soluciones hechas a la medida.
             </p>
-            
-            <h2>Nuestro Equipo</h2>
-            <p>Contamos con un equipo multidisciplinario de desarrolladores, diseñadores y especialistas en tecnología apasionados por crear soluciones que marquen la diferencia. Nuestra cultura se basa en la colaboración, el aprendizaje continuo y la búsqueda constante de la innovación.</p>
-            
-            <h2>Nuestra Misión</h2>
-            <p>Proporcionar soluciones de software de alta calidad que impulsen la transformación digital de nuestros clientes, ayudándoles a alcanzar sus objetivos de negocio a través de la tecnología.</p>
+            <p class="mb-4">
+                Soy desarrollador Full Stack especializado en software empresarial (SaaS), sistemas ERP y
+                automatización de procesos administrativos para empresas mexicanas. Trabajo principalmente con
+                el ecosistema .NET (C#), Angular y TypeScript, cuidando que cada sistema sea rápido, escalable
+                y fácil de mantener.
+            </p>
+            <p class="mb-6">
+                A lo largo de mi trabajo he desarrollado sistemas administrativos, financieros y contables:
+                desde paneles con indicadores y reportes, hasta conciliaciones bancarias e integración con el
+                SAT para la descarga y visualización de CFDI. Esa experiencia con la parte fiscal y financiera
+                de las empresas es la que pongo a tu disposición a través de Codexart.
+            </p>
+
+            <span class="font-semibold text-lg block mb-6">"Si puedes imaginarlo... puedes programarlo."</span>
+
+            <a href="/contactanos" class="cdx-button">
+                <i class="fa-solid fa-up-right-from-square mr-2"></i>
+                Trabajemos juntos
+            </a>
         </div>
-        
-        <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Equipo de CodexArt" />
+
+        <div>
+            <img
+                src="/ruben.jpg"
+                alt="Rubén Vázquez, fundador de Codexart, en su oficina"
+                class="w-full h-auto rounded-2xl shadow shadow-brand-200 border border-slate-200 object-cover"
+            />
         </div>
     </section>
-</Layout>
 
-<style>
-    .about-hero {
-        background-color: #0066cc;
-        color: white;
-        padding: 4rem 2rem;
-        text-align: center;
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .about-content {
-        max-width: 1200px;
-        margin: 3rem auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-    }
-    
-    .about-text h2 {
-        margin: 2rem 0 1rem;
-        color: #333;
-    }
-    
-    .about-image img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    @media (max-width: 768px) {
-        .about-content {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
+    <!-- Valores -->
+    <section class="bg-gray-50 px-8 py-16">
+        <h2 class="text-center text-3xl mb-12">Cómo trabajo</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {
+                valores.map((valor) => (
+                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 text-center">
+                        <i class={valor.icon + " text-3xl text-brand-600 mb-4"}></i>
+                        <h3 class="font-semibold mb-2">{valor.title}</h3>
+                        <p class="text-gray-600 text-sm">{valor.text}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Misión -->
+    <section class="max-w-4xl mx-auto px-8 py-16 text-center">
+        <h2 class="text-3xl mb-4">Mi misión</h2>
+        <p class="text-lg text-gray-600">
+            Proporcionar soluciones de software de alta calidad que impulsen la transformación digital de
+            mis clientes, ayudándoles a alcanzar sus objetivos de negocio a través de la tecnología.
+        </p>
+    </section>
+</Layout>

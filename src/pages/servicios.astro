@@ -1,6 +1,53 @@
 ---
 // src/pages/servicios.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+const servicios = [
+    {
+        icon: "fa-solid fa-database",
+        title: "Sistemas ERP a la medida",
+        subtitle: "Enterprise Resource Planning",
+        text: "Plataformas administrativas, financieras y contables hechas a la medida de tu empresa, sin importar su giro o tamaño.",
+        items: [
+            "Gestión de clientes, proveedores y compras",
+            "Dashboards financieros y reportes en Excel",
+            "Conciliación bancaria e integración con el SAT (CFDI)",
+        ],
+    },
+    {
+        icon: "fa-solid fa-globe",
+        title: "Diseño de páginas web",
+        subtitle: "Blogs personales / Páginas informativas",
+        text: "La cara de tu negocio en internet: sitios modernos, responsivos y pensados para que te encuentren.",
+        items: [
+            "Landing pages",
+            "Páginas informativas y blogs",
+            "Propuestas y asesoría de contenido",
+        ],
+    },
+    {
+        icon: "fa-solid fa-at",
+        title: "Dominios y correos para empresas",
+        subtitle: "Dominio.com / correo@Dominio.com",
+        text: "Tu espacio propio en internet, administrado por nosotros, con correos a tu nombre de dominio.",
+        items: [
+            "Registro y administración de dominio",
+            "Correos profesionales personalizados",
+            "Publicación de tu sitio en línea",
+        ],
+    },
+    {
+        icon: "fa-solid fa-headset",
+        title: "Soporte técnico especializado",
+        subtitle: "Capacitación y asistencia",
+        text: "Acompañamiento personalizado y capacitación por área para que aproveches al máximo tus sistemas.",
+        items: [
+            "Asistencia personalizada",
+            "Capacitación por área",
+            "Resolución de dudas en el camino",
+        ],
+    },
+];
 ---
 
 <Layout title="Servicios">
@@ -8,98 +55,44 @@ import Layout from '../layouts/Layout.astro';
         <h1>Nuestros Servicios</h1>
         <p>Soluciones tecnológicas adaptadas a tus necesidades</p>
     </section>
-    
-    <section class="services-list">
-        <div class="service">
-            <div class="service-icon">
-                <i class="fas fa-globe"></i>
-            </div>
-            <div class="service-content">
-                <h2>Desarrollo Web</h2>
-                <p>Creación de sitios web modernos, responsivos y optimizados para SEO que representan tu marca en internet.</p>
-                <ul>
-                    <li>Landing Pages</li>
-                    <li>Tiendas en línea</li>
-                    <li>Aplicaciones web progresivas</li>
-                </ul>
-            </div>
+
+    <section class="max-w-6xl mx-auto px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+                servicios.map((servicio) => (
+                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-8 flex flex-col">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-brand-600 text-white w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class={servicio.icon + " text-xl"}></i>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-xl">{servicio.title}</h2>
+                                <h4 class="text-gray-400 font-medium text-sm">{servicio.subtitle}</h4>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">{servicio.text}</p>
+                        <ul class="space-y-2 mt-auto">
+                            {servicio.items.map((item) => (
+                                <li class="flex items-center gap-2 text-gray-700">
+                                    <i class="fa-solid fa-check text-brand-600" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
         </div>
-        
-        <div class="service">
-            <div class="service-icon">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <div class="service-content">
-                <h2>Aplicaciones Móviles</h2>
-                <p>Desarrollo de aplicaciones nativas e híbridas para iOS y Android que conectan con tus clientes.</p>
-                <ul>
-                    <li>Aplicaciones empresariales</li>
-                    <li>Apps de productividad</li>
-                    <li>Soluciones a medida</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="service">
-            <div class="service-icon">
-                <i class="fas fa-server"></i>
-            </div>
-            <div class="service-content">
-                <h2>Backend & APIs</h2>
-                <p>Desarrollo de sistemas robustos y escalables que alimentan tus aplicaciones y procesos de negocio.</p>
-                <ul>
-                    <li>Microservicios</li>
-                    <li>APIs REST/GraphQL</li>
-                    <li>Integraciones de sistemas</li>
-                </ul>
-            </div>
+
+        <!-- CTA -->
+        <div class="mt-14 text-center">
+            <p class="text-lg text-gray-600 mb-6">
+                ¿No estás seguro de qué necesitas? Con gusto te asesoro sin compromiso.
+            </p>
+            <a href="/contactanos" class="cdx-button">
+                <i class="fa-solid fa-up-right-from-square mr-2"></i>
+                Solicita tu cotización
+            </a>
         </div>
     </section>
 </Layout>
-
-<style>
-    .services-list {
-        max-width: 1200px;
-        margin: 3rem auto;
-        padding: 0 2rem;
-    }
-    
-    .service {
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        align-items: flex-start;
-    }
-    
-    .service-icon {
-        background-color: #0066cc;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-    
-    .service-icon i {
-        font-size: 1.5rem;
-    }
-    
-    .service-content h2 {
-        margin-bottom: 1rem;
-        color: #333;
-    }
-    
-    .service-content ul {
-        margin-top: 1rem;
-        padding-left: 1.5rem;
-    }
-    
-    @media (max-width: 768px) {
-        .service {
-            flex-direction: column;
-        }
-    }
-</style>

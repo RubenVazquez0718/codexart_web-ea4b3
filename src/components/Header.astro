@@ -6,12 +6,15 @@ import SideMenu from '../components/SideMenu.astro';
 
 const menuItems = [
     { name: 'Inicio',      href: '/',            icon: "fa-solid fa-house"          },
-    // { name: 'Servicios',   href: '/servicios/',   icon: "fa-solid fa-file-lines"     },
+    { name: 'Servicios',   href: '/servicios/',   icon: "fa-solid fa-file-lines"     },
     { name: 'Nosotros',    href: '/nosotros/',    icon: "fa-solid fa-building"       },
     { name: 'Contáctanos', href: '/contactanos/', icon: "fa-solid fa-rectangle-list" },
 ];
 
 const currentPath = Astro.url.pathname;
+// Normaliza quitando la diagonal final para que la comparación
+// funcione sin importar si se llegó con o sin "/" al final.
+const stripSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
 ---
 
 <header class="header-class" >
@@ -22,10 +25,10 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:block">
         <ul class="flex space-x-4">
             {menuItems.map(item => {
-                const isActive = currentPath === item.href;
+                const isActive = stripSlash(currentPath) === stripSlash(item.href);
                 return (
-                    <li class={(isActive ? 'border-b-2 border-b-sky-500' : '') + ' cursor-pointer pb-2 px-4 hover:bg-sky-100 hover:rounded-lg hover:text-blue-600'}  id={item.name}>
-                        <a href={item.href} class="side-menu-a-item">
+                    <li class={'cursor-pointer ' + (isActive ? 'border-b-2 border-b-brand-500' : '')} id={item.name}>
+                        <a href={item.href} class={'block pb-2 px-4 rounded-lg transition-colors hover:bg-brand-100 hover:text-brand-600' + (isActive ? ' text-brand-600' : '')}>
                             {item.name}
                         </a>
                     </li>

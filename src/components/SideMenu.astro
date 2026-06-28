@@ -7,13 +7,16 @@ const menuItems = [
     { name: 'Contáctanos', href: '/contactanos/', icon: "fa-solid fa-rectangle-list" },
 ];
 const socialItems = [
-    { name: 'Facebook',  href: 'https://facebook.com/codexart',         icon: 'fab fa-facebook-f'  },
-    { name: 'Instagram', href: 'https://instagram.com/codexart',        icon: 'fab fa-instagram'   },
-    { name: 'LinkedIn',  href: 'https://linkedin.com/company/codexart', icon: 'fab fa-linkedin-in' },
+    { name: 'Facebook',  href: 'https://facebook.com/codexart.dev',         icon: 'fab fa-facebook-f'  },
+    { name: 'Instagram', href: 'https://instagram.com/codexart.dev',        icon: 'fab fa-instagram'   },
+    { name: 'LinkedIn',  href: 'https://linkedin.com/company/codexart.dev', icon: 'fab fa-linkedin-in' },
     { name: 'YouTube',   href: 'https://youtube.com/codexart',          icon: 'fab fa-youtube'     },
 ];
 
 const currentPath = Astro.url.pathname;
+// Normaliza quitando la diagonal final para que la comparación
+// funcione sin importar si se llegó con o sin "/" al final.
+const stripSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
 ---
 <!-- Botón de hamburguesa para móviles -->
 <button class="md:hidden p-2 text-gray-700 z-50" aria-label="Abrir menú"
@@ -34,9 +37,9 @@ const currentPath = Astro.url.pathname;
     <nav class="p-4">
         <ul class="space-y-2">
             {menuItems.map(item => {
-                const isActive = currentPath === item.href;
+                const isActive = stripSlash(currentPath) === stripSlash(item.href);
                 return (
-                    <li class={(isActive ? 'bg-sky-400 rounded-lg p-1 text-white' : '') + ' cursor-pointer'} id={item.name}>
+                    <li class={(isActive ? 'bg-brand-600 rounded-lg p-1 text-white' : '') + ' cursor-pointer'} id={item.name}>
                         <i class={item.icon + ' mr-2'}></i>
                         <a href={item.href} class="side-menu-a-item"
                             onclick="document.getElementById('side-menu').classList.remove('translate-x-0');">

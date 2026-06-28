@@ -3,9 +3,9 @@ import type { FC } from 'react';
 
 const SocialIcons: FC = () => {
   const socialLinks = [
-    { name: 'Facebook', url: 'https://facebook.com/codexart', icon: 'facebook-f' },
-    { name: 'Instagram', url: 'https://instagram.com/codexart', icon: 'instagram' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/company/codexart', icon: 'linkedin-in' },
+    { name: 'Facebook', url: 'https://facebook.com/codexart.dev', icon: 'facebook-f' },
+    { name: 'Instagram', url: 'https://instagram.com/codexart.dev', icon: 'instagram' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/company/codexart.dev', icon: 'linkedin-in' },
     { name: 'YouTube', url: 'https://youtube.com/codexart', icon: 'youtube' },
   ];
 
