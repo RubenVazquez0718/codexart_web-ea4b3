@@ -2,151 +2,160 @@
 // src/pages/contactanos.astro
 import Layout from "../layouts/Layout.astro";
 
-const contactos = [
-    {
-        icon: "fa-solid fa-location-dot",
-        title: "Ubicación",
-        value: "Tabasco, México",
-        href: null,
-    },
-    {
-        icon: "fa-solid fa-envelope",
-        title: "Correo electrónico",
-        value: "contacto@codexart.com",
-        href: "mailto:contacto@codexart.com",
-    },
-    {
-        icon: "fa-brands fa-whatsapp",
-        title: "WhatsApp",
-        value: "+52 993 183 0220",
-        href: "https://wa.me/529931830220",
-    },
-];
-
 const redes = [
-    { name: "Facebook", href: "https://facebook.com/codexart", icon: "fa-brands fa-facebook-f" },
-    { name: "Instagram", href: "https://instagram.com/codexart", icon: "fa-brands fa-instagram" },
-    { name: "LinkedIn", href: "https://linkedin.com/company/codexart", icon: "fa-brands fa-linkedin-in" },
+    { name: "Facebook", href: "https://facebook.com/codexart.dev", icon: "fa-brands fa-facebook-f" },
+    { name: "Instagram", href: "https://instagram.com/codexart.dev", icon: "fa-brands fa-instagram" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/codexart.dev", icon: "fa-brands fa-linkedin-in" },
     { name: "YouTube", href: "https://youtube.com/codexart", icon: "fa-brands fa-youtube" },
 ];
 ---
 
 <Layout title="Contáctanos">
     <!-- Hero -->
-    <section class="contact-section">
-        <h1>Contáctanos</h1>
-        <p>Estamos listos para ayudarte con tu proyecto</p>
-    </section>
+    <section class="hero-cosmic-sm">
+        <div class="hero-constellation" aria-hidden="true">
+            <svg viewBox="0 0 1000 380" preserveAspectRatio="xMidYMid slice">
+                <circle class="hero-star dim" cx="70" cy="60" r="1.2" />
+                <circle class="hero-star dim" cx="130" cy="300" r="1.2" />
+                <circle class="hero-star mid" cx="960" cy="60" r="1.3" />
+                <circle class="hero-star dim" cx="900" cy="310" r="1.2" />
 
-    <section class="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Formulario -->
-        <div>
-            <h2 class="text-3xl mb-8">Envíanos un mensaje</h2>
-            <form id="contact-form" class="space-y-6">
-                <div>
-                    <label for="name" class="block mb-2 font-medium">Nombre</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
-                </div>
-
-                <div>
-                    <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
-                </div>
-
-                <div>
-                    <label for="subject" class="block mb-2 font-medium">Asunto</label>
-                    <input type="text" id="subject" name="subject" required
-                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500" />
-                </div>
-
-                <div>
-                    <label for="message" class="block mb-2 font-medium">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" required
-                        class="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
-                </div>
-
-                <button type="submit" class="cdx-button w-full sm:w-auto">
-                    <i class="fa-solid fa-paper-plane mr-2"></i>
-                    Enviar mensaje
-                </button>
-            </form>
+                <g>
+                    <circle class="ping-ring r3" cx="760" cy="180" r="150" />
+                    <circle class="ping-ring r2" cx="760" cy="180" r="100" />
+                    <circle class="ping-ring r1" cx="760" cy="180" r="55" />
+                    <circle class="ping-center" cx="760" cy="180" r="6" />
+                    <text class="hero-node-label" x="778" y="176">Tu mensaje</text>
+                    <text class="hero-node-label" x="778" y="192" opacity="0.7">llega directo</text>
+                </g>
+            </svg>
         </div>
 
-        <!-- Información de contacto -->
-        <div>
-            <h2 class="text-3xl mb-8">Información de contacto</h2>
+        <div class="relative z-10 max-w-2xl">
+            <nav class="breadcrumb" aria-label="Ruta de navegación">
+                <a href="/">Inicio</a>
+                <span class="sep">/</span>
+                <span class="current">Contáctanos</span>
+            </nav>
+            <h1 class="text-3xl sm:text-4xl font-semibold">
+                Estamos listos para ayudarte con tu proyecto
+            </h1>
+            <p class="mt-4 text-brand-300 max-w-lg">
+                Cuéntanos qué necesitas y te respondemos directo — sin formularios que se pierden en un buzón genérico.
+            </p>
+            <div class="hero-trust">
+                <span class="dot"></span>
+                Respuesta en menos de 24 horas hábiles
+            </div>
+        </div>
+    </section>
 
-            <div class="space-y-6">
-                {
-                    contactos.map((c) => (
-                        <div class="flex items-center gap-4">
-                            <div class="bg-brand-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class={c.icon + " text-lg"} />
-                            </div>
+    <section class="px-8 sm:px-16 py-16">
+        <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-[1.4fr_1fr] items-start">
+
+            <!-- Formulario -->
+            <div class="form-card">
+                <h2 class="text-2xl">Escríbenos y te respondemos personalmente</h2>
+                <p>Entre más contexto nos des, más precisos podemos ser en la primera respuesta.</p>
+
+                <!-- Formulario listo para Netlify Forms: name="contacto" + data-netlify="true" para que
+                     Netlify lo detecte al desplegar, el input oculto form-name, el honeypot bot-field
+                     para filtrar bots, y action="/gracias" a donde redirige tras un envío exitoso. -->
+                <form
+                    name="contacto"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    action="/gracias"
+                    class="contact-form"
+                >
+                    <input type="hidden" name="form-name" value="contacto" />
+                    <p class="honeypot-field" aria-hidden="true">
+                        <label>No llenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+                    </p>
+
+                    <div class="form-row-pair">
+                        <div class="field">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+                        </div>
+                        <div class="field">
+                            <label for="correo">Correo electrónico</label>
+                            <input id="correo" name="correo" type="email" autocomplete="email" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="asunto">Asunto</label>
+                        <input id="asunto" name="asunto" type="text" placeholder="Ej. Sistema para conciliación bancaria" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos cómo trabaja tu empresa hoy y qué te gustaría resolver." required></textarea>
+                    </div>
+
+                    <div class="form-foot">
+                        <button type="submit" class="inline-flex items-center gap-2 bg-amber-400 text-ink-950 px-6 py-3 rounded-full font-bold transition-colors hover:bg-amber-300">
+                            Enviar mensaje
+                        </button>
+                        <span class="form-note">Al enviar, tu mensaje llega directo al correo de Codexart — no se comparte con nadie más.</span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contacto directo y redes -->
+            <div>
+                <div class="info-card">
+                    <p class="text-brand-300 text-sm mb-1">¿Prefieres algo más directo?</p>
+                    <h3>Escríbenos por WhatsApp</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="ic"><i class="fa-solid fa-envelope"></i></span>
                             <div>
-                                <h3 class="font-semibold">{c.title}</h3>
-                                {c.href ? (
-                                    <a href={c.href} target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-600 transition-colors">
-                                        {c.value}
-                                    </a>
-                                ) : (
-                                    <p class="text-gray-600">{c.value}</p>
-                                )}
+                                <strong>Correo</strong>
+                                <a href="mailto:contacto@codexart.com">contacto@codexart.com</a>
                             </div>
                         </div>
-                    ))
-                }
-            </div>
+                        <div class="info-item">
+                            <span class="ic"><i class="fa-brands fa-whatsapp"></i></span>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <a href="https://wa.me/529937212616" target="_blank" rel="noopener noreferrer">+52 993 721 2616</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="ic"><i class="fa-solid fa-location-dot"></i></span>
+                            <div>
+                                <strong>Ubicación</strong>
+                                <span>Tabasco, México</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        class="mt-6 inline-flex items-center justify-center gap-2 w-full bg-emerald-600 text-white px-6 py-3 rounded-full font-bold transition-colors hover:bg-emerald-700"
+                        href="https://wa.me/529937212616?text=Hola%2C%20me%20interesa%20platicar%20sobre%20un%20proyecto"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Abrir WhatsApp
+                    </a>
+                </div>
 
-            <!-- WhatsApp destacado -->
-            <a
-                href="https://wa.me/529931830220"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-8 inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-md font-bold transition-colors hover:bg-emerald-700"
-            >
-                <i class="fa-brands fa-whatsapp text-xl"></i>
-                Escríbenos por WhatsApp
-            </a>
-
-            <!-- Redes -->
-            <div class="mt-10">
-                <h3 class="font-semibold mb-4">Síguenos</h3>
-                <div class="flex gap-3">
-                    {
-                        redes.map((red) => (
-                            <a
-                                href={red.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={red.name}
-                                class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-gray-700 hover:text-white hover:bg-brand-600 transition-colors"
-                            >
-                                <i class={red.icon} />
-                            </a>
-                        ))
-                    }
+                <div class="social-card">
+                    <h4>Síguenos</h4>
+                    <div class="social-row">
+                        {
+                            redes.map((red) => (
+                                <a href={red.href} target="_blank" rel="noopener noreferrer" aria-label={red.name}>
+                                    <i class={red.icon}></i>
+                                </a>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 </Layout>
-
-<script>
-    // Envío sin backend: arma un correo con los datos del formulario.
-    // Cuando tengas un servicio (Formspree, Resend, API propia), reemplaza esta lógica.
-    const form = document.getElementById("contact-form") as HTMLFormElement | null;
-    form?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const name = encodeURIComponent(String(data.get("name") ?? ""));
-        const email = encodeURIComponent(String(data.get("email") ?? ""));
-        const subject = encodeURIComponent(String(data.get("subject") ?? ""));
-        const message = encodeURIComponent(String(data.get("message") ?? ""));
-
-        const body = `Nombre: ${name}%0D%0ACorreo: ${email}%0D%0A%0D%0A${message}`;
-        window.location.href = `mailto:contacto@codexart.com?subject=${subject}&body=${body}`;
-    });
-</script>

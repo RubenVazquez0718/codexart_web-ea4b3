@@ -2,27 +2,90 @@
 // src/pages/index.astro
 import Layout from "../layouts/Layout.astro";
 
-const tabs = [
+const soluciones = [
     {
-        id: "idSectionOne",
-        title: "Digital ERP",
-        isActive: true,
+        id: "1",
+        num: "01",
+        tag: "Sistemas",
+        title: "Sistema para tu negocio",
+        label: "Sistema para tu negocio",
+        description:
+            "Un sistema construido alrededor de tus procesos reales: clientes, proveedores, compras y finanzas en un solo lugar.",
+        items: [
+            "Gestión de clientes, proveedores y compras",
+            "Reportes financieros claros, sin armarlos a mano en Excel",
+            "Cruce automático entre tus movimientos bancarios y tus facturas del SAT",
+        ],
+        meta: [
+            { label: "Tiempo estimado", value: "Según la complejidad y alcance" },
+            { label: "Ideal para", value: "Operaciones con varias áreas" },
+        ],
     },
     {
-        id: "idSectionTwo",
-        title: "Diseño de pagina web",
-        isActive: false,
+        id: "2",
+        num: "02",
+        tag: "Presencia",
+        title: "Diseño de página web",
+        label: "Página web",
+        description:
+            "Páginas para presentar tu negocio, blogs y sitios informativos, pensados para que te encuentren y transmitan profesionalismo.",
+        items: [
+            "Página para presentar o vender tus productos y servicios",
+            "Páginas informativas y blogs",
+            "Propuestas y asesoría de contenido",
+        ],
+        meta: [
+            { label: "Tiempo estimado", value: "1–3 semanas" },
+            { label: "Ideal para", value: "Negocios que necesitan presencia rápida" },
+        ],
     },
     {
-        id: "idSectionThree",
+        id: "3",
+        num: "03",
+        tag: "Identidad",
         title: "Dominios y correos para empresas",
-        isActive: false,
+        label: "Dominios y correo",
+        description:
+            "Tu empresa con dominio propio y correos profesionales, sin depender de cuentas personales.",
+        items: [
+            "Registro y administración de dominio",
+            "Correos profesionales personalizados",
+            "Publicación de tu sitio en línea",
+        ],
+        meta: [
+            { label: "Tiempo estimado", value: "2–5 días" },
+            { label: "Ideal para", value: "Empresas sin presencia formal aún" },
+        ],
     },
     {
-        id: "idSectionFour",
-        title: "Soporte técnico",
-        isActive: false,
+        id: "4",
+        num: "04",
+        tag: "Acompañamiento",
+        title: "Soporte técnico especializado",
+        label: "Soporte técnico",
+        description:
+            "Asistencia y capacitación continua, para que tu equipo saque provecho real del sistema.",
+        items: [
+            "Asistencia personalizada",
+            "Capacitación por área",
+            "Resolución de dudas en el camino",
+        ],
+        meta: [
+            { label: "Disponibilidad", value: "Bajo demanda" },
+            { label: "Modalidad", value: "Remota o en sitio" },
+            { label: "Ideal para", value: "Equipos que ya usan un sistema" },
+        ],
     },
+];
+
+// Señales de identificación: "¿Te suena familiar?"
+const teSuena = [
+    "Pasas más tiempo en Excel del que te gustaría admitir.",
+    "Tu información vive repartida entre WhatsApp, correos y hojas de cálculo.",
+    "Capturas el mismo dato dos o tres veces, en sistemas distintos.",
+    "Ahora mismo no sabrías decir con certeza cómo va tu negocio.",
+    "Tu sistema actual hace \"casi\" lo que necesitas — pero no del todo.",
+    "Tu empresa creció, y tus herramientas se quedaron en el tamaño anterior.",
 ];
 
 // Razones para elegir Codexart.
@@ -35,12 +98,12 @@ const porQue = [
     {
         icon: "fa-solid fa-file-invoice-dollar",
         title: "Especialización financiera y fiscal",
-        text: "Experiencia real en contabilidad, conciliación bancaria e integración con el SAT.",
+        text: "Experiencia real resolviendo temas de contabilidad, bancos y trámites con el SAT.",
     },
     {
         icon: "fa-solid fa-code",
-        title: "Código limpio y escalable",
-        text: "Arquitecturas simples, rápidas y fáciles de hacer crecer con tu negocio.",
+        title: "Sistemas que crecen contigo",
+        text: "Para que no tengas que rehacer todo cuando tu negocio crezca: construimos pensando también en el mañana.",
     },
     {
         icon: "fa-solid fa-headset",
@@ -64,7 +127,7 @@ const proceso = [
     {
         num: "03",
         title: "Desarrollo",
-        text: "Construimos el sistema con entregas y retroalimentación constante.",
+        text: "Construimos tu sistema por etapas y te vamos mostrando avances, para que sepas en todo momento en qué va tu proyecto.",
     },
     {
         num: "04",
@@ -77,8 +140,8 @@ const proceso = [
 const construir = [
     {
         icon: "fa-solid fa-cubes",
-        title: "Sistemas ERP",
-        text: "Gestión integral de clientes, proveedores, compras y personal.",
+        title: "Sistema para administrar tu negocio",
+        text: "Controla en un solo lugar a tus clientes, proveedores, compras y personal.",
     },
     {
         icon: "fa-solid fa-calculator",
@@ -87,69 +150,151 @@ const construir = [
     },
     {
         icon: "fa-solid fa-chart-line",
-        title: "Dashboards financieros",
-        text: "KPIs, utilidades, costos e indicadores en tiempo real.",
+        title: "Reportes financieros claros",
+        text: "Ve de un vistazo cómo van tus ventas, tus costos y tus ganancias, sin armar reportes a mano.",
     },
     {
         icon: "fa-solid fa-building-columns",
         title: "Conciliación bancaria",
-        text: "Cruce de movimientos, CFDI y clasificación automática.",
+        text: "Compara automáticamente tus movimientos de banco con tus facturas, sin hacerlo a mano.",
     },
     {
         icon: "fa-solid fa-file-invoice",
-        title: "Compras y RFQ",
-        text: "Cotizaciones, folios, notificaciones y correos automáticos.",
+        title: "Compras y cotizaciones",
+        text: "Pide, compara y da seguimiento a tus cotizaciones con proveedores, todo en un mismo lugar.",
     },
     {
         icon: "fa-solid fa-cloud-arrow-down",
-        title: "Integración con el SAT",
-        text: "Descarga masiva de XML y visualización de CFDI.",
+        title: "Tus facturas del SAT, organizadas",
+        text: "Consulta y descarga tus facturas automáticamente, sin entrar al portal del SAT cada vez.",
     },
-];
-
-// Stack de tecnologías con el que trabaja Codexart.
-const techStack = [
-    { name: ".NET / C#", icon: "fa-brands fa-microsoft" },
-    { name: "Angular", icon: "fa-brands fa-angular" },
-    { name: "TypeScript", icon: "fa-solid fa-code" },
-    { name: "Python", icon: "fa-brands fa-python" },
-    { name: "Tailwind CSS", icon: "fa-solid fa-wind" },
-    { name: "SQL Server", icon: "fa-solid fa-database" },
-    { name: "Docker", icon: "fa-brands fa-docker" },
 ];
 
 // Clientes que han confiado en Codexart.
 // TODO: confirma los nombres / agrupaciones y, si tienes, sus logos en /public.
-const clientes = ["Gordo y San Pancho", "Ximar Construcciones"];
+// TODO: reemplaza "nota" por una frase real (con autorización del cliente) de qué se le construyó.
+const clientes = [
+    { nombre: "Gordo y San Pancho", nota: "[DATO QUE SERÍA CONVENIENTE AGREGAR: qué se les construyó, en una frase, con su autorización]" },
+    { nombre: "Ximar Construcciones", nota: "[DATO QUE SERÍA CONVENIENTE AGREGAR: qué se les construyó, en una frase, con su autorización]" },
+];
 ---
 
 <Layout title="Inicio">
     <section class="index-section">
+        <div class="hero-constellation" aria-hidden="true">
+            <svg viewBox="0 0 1000 620" preserveAspectRatio="xMidYMin slice">
+                <circle class="hero-star dim" cx="60" cy="80" r="1.4" />
+                <circle class="hero-star mid" cx="140" cy="220" r="1.6" />
+                <circle class="hero-star dim" cx="220" cy="60" r="1.2" />
+                <circle class="hero-star mid" cx="320" cy="140" r="1.4" />
+                <circle class="hero-star dim" cx="410" cy="40" r="1.2" />
+                <circle class="hero-star dim" cx="500" cy="90" r="1.4" />
+                <circle class="hero-star mid" cx="600" cy="30" r="1.3" />
+                <circle class="hero-star dim" cx="700" cy="70" r="1.5" />
+                <circle class="hero-star mid" cx="800" cy="120" r="1.3" />
+                <circle class="hero-star dim" cx="900" cy="60" r="1.4" />
+                <circle class="hero-star dim" cx="960" cy="200" r="1.2" />
+                <circle class="hero-star mid" cx="70" cy="380" r="1.4" />
+                <circle class="hero-star dim" cx="150" cy="480" r="1.2" />
+                <circle class="hero-star mid" cx="900" cy="420" r="1.4" />
+                <circle class="hero-star dim" cx="970" cy="520" r="1.3" />
+                <circle class="hero-star dim" cx="40" cy="560" r="1.2" />
+
+                <g>
+                    <line class="hero-node-line" x1="620" y1="130" x2="760" y2="90" />
+                    <line class="hero-node-line" x1="760" y1="90" x2="880" y2="180" />
+                    <line class="hero-node-line" x1="620" y1="130" x2="700" y2="250" />
+                    <line class="hero-node-line" x1="700" y1="250" x2="880" y2="180" />
+                    <line class="hero-node-line" x1="700" y1="250" x2="640" y2="380" />
+                    <line class="hero-node-line" x1="880" y1="180" x2="930" y2="320" />
+
+                    <circle class="hero-node" cx="620" cy="130" r="4" />
+                    <text class="hero-node-label" x="600" y="112">ERP</text>
+
+                    <circle class="hero-node" cx="760" cy="90" r="4" />
+                    <text class="hero-node-label" x="770" y="80">SAT · CFDI</text>
+
+                    <circle class="hero-node" cx="880" cy="180" r="4" />
+                    <text class="hero-node-label" x="890" y="175">Web</text>
+
+                    <circle class="hero-node" cx="700" cy="250" r="4" />
+                    <text class="hero-node-label" x="710" y="270">Dashboards</text>
+
+                    <circle class="hero-node" cx="930" cy="320" r="4" />
+                    <text class="hero-node-label" x="890" y="345">Soporte</text>
+
+                    <circle class="hero-node" cx="640" cy="380" r="4" />
+                    <text class="hero-node-label" x="600" y="405">Dominios</text>
+                </g>
+            </svg>
+        </div>
+
         <div class="index-section-content">
-            <h1 class="text-4xl mb-4">Desarrollo de soluciones tecnológicas</h1>
-            <p class="text-lg mb-4">
-                Soluciones tecnológicas a medida para tu pequeño y mediano
-                negocio
+            <h1 class="text-4xl sm:text-5xl mb-4 font-semibold">
+                Cuando tu negocio crece, <span class="text-amber-400">Excel</span> ya no alcanza.
+            </h1>
+            <p class="text-lg mb-4 text-brand-300 max-w-xl">
+                Creamos sistemas a la medida para que tengas control real de tus ventas,
+                tu dinero y tus procesos — sin tener que entender de tecnología.
             </p>
 
-            <a href="/contactanos" class="cdx-button">
-                <i class="fa-solid fa-up-right-from-square px-0 mr-2"></i>
-                Contáctanos
+            <div class="flex flex-wrap gap-4 mt-6">
+                <a href="/contactanos" class="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold transition-colors hover:bg-emerald-700">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    Cuéntanos qué necesita tu negocio
+                </a>
+                <a href="/servicios" class="inline-flex items-center gap-2 border border-white/35 text-white px-6 py-3 rounded-full font-semibold transition-colors hover:border-white hover:bg-white/10">
+                    Ver servicios
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <span class="dot"></span>
+                Especialistas en finanzas y en conectar tu negocio con el SAT · Tabasco, México
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Te suena familiar? -->
+    <section class="px-8 sm:px-16 py-16">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+            <h2 class="text-3xl">¿Te suena familiar?</h2>
+            <p class="mt-3 text-gray-500">
+                Estas son señales comunes de que tu negocio ya superó tus herramientas actuales.
+                No necesitas saber qué sistema pedir — solo reconocer si algo de esto te pasa.
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {
+                teSuena.map((item, idx) => (
+                    <div class="cdx-card reveal signal-item" style={`--i:${idx}`}>
+                        <span class="cdx-icon mark">{String(idx + 1).padStart(2, "0")}</span>
+                        <p>{item}</p>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="signal-close reveal max-w-4xl mx-auto" style={`--i:${teSuena.length}`}>
+            <p><strong>No tienes que saber qué necesitas.</strong> Cuéntanos cómo trabajas hoy, y juntos encontramos por dónde empezar.</p>
+            <a href="/contactanos" class="inline-flex items-center gap-2 bg-amber-400 text-ink-950 px-6 py-3 rounded-full font-bold transition-colors hover:bg-amber-300 flex-shrink-0">
+                Cuéntanos cómo trabajas
             </a>
         </div>
     </section>
 
     <!-- Por qué Codexart -->
-    <section class="bg-gray-50 px-8 sm:px-16 py-16">
+    <section class="bg-white px-8 sm:px-16 py-16">
         <h2 class="text-center text-3xl mb-2">¿Por qué Codexart?</h2>
         <p class="text-center text-gray-500 mb-12">
-            Tecnología cercana, pensada para empresas mexicanas.
+            Porque tu negocio no debería adaptarse al software. El software debería adaptarse a tu negocio.
         </p>
         <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {
-                porQue.map((item) => (
-                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 text-center">
-                        <i class={item.icon + " text-3xl text-brand-600 mb-4"} />
+                porQue.map((item, idx) => (
+                    <div class="cdx-card reveal bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 text-center" style={`--i:${idx}`}>
+                        <i class={item.icon + " cdx-icon text-3xl text-brand-600 mb-4"} />
                         <h3 class="font-semibold mb-2">{item.title}</h3>
                         <p class="text-gray-600 text-sm">{item.text}</p>
                     </div>
@@ -158,126 +303,101 @@ const clientes = ["Gordo y San Pancho", "Ximar Construcciones"];
         </div>
     </section>
 
-    <section class="index-soluciones">
-        <h2>Nuestras soluciones</h2>
-        <div class="section-tabs" role="tablist">
-            {
-                tabs.map((tab) => (
-                    <a
-                        href={`#${tab.id}`}
-                        aria-current={tab.isActive ? "page" : "false"}
-                        class="whitespace-nowrap py-2 px-4 font-semibold rounded-full border-0 text-gray-700 aria-[current=page]:bg-brand-600 aria-[current=page]:text-white transition-all duration-300 ease-in-out"
-                        role="tab"
-                    >
-                        {tab.title}
-                    </a>
-                ))
-            }
+    <section class="px-8 sm:px-16 py-16">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+            <h2 class="text-3xl">Cuatro maneras de resolver tu problema tecnológico</h2>
+            <p class="mt-3 text-gray-500">
+                De un sistema ERP completo a una simple cuenta de correo con tu dominio — empezamos donde tú lo necesites.
+            </p>
         </div>
 
-        <div class="section-container">
-            <div id="idSectionOne" class="section-card" role="tabpanel">
-                <div class="section-content">
-                    <div class="w-full h-full sm:px-4 px-2 pb-4">
-                        <h2 class="font-semibold"> Sistema de administracion de recursos empresariales (ERP) </h2>
-                        <h4 class="text-gray-400 font-medium"> Enterprise resources planing </h4>
-                        <div class="mt-4">
-                            <p class="mb-2">
-                                Nuestros sistemas de administrativos son hechos a la medida de las necesidades del cliente.
-                                Esto nos ayuda a brindar un sistema accesible para cada tipo de empresa independientemente de su nicho objetivo.
-                                Todo el set de herramientas perfectas para cualquier tipo de empresa y emprendimientos, grandes, medianas o pequeñas.
-                                Organiza de manera rápida tus clientes, obtén reportes con un solo clic de tus proveedores, administra tu personal y mantén al día tus unidades.
-                            </p>
-
-                            <span class="font-semibold"> "Si puedes imaginarlo... puedes programarlo". </span>
-                        </div>
-                    </div>
-                    <div class="index-soluciones-image-one"></div>
-                </div>
+        <div class="solutions-selector max-w-6xl mx-auto" id="solSelector">
+            <div class="solutions-nav" role="tablist" aria-label="Soluciones de Codexart">
+                {
+                    soluciones.map((sol, i) => (
+                        <button
+                            class={"sol-tab" + (i === 0 ? " active" : "")}
+                            role="tab"
+                            aria-selected={i === 0 ? "true" : "false"}
+                            aria-controls={`sol-panel-${sol.id}`}
+                            id={`sol-tab-${sol.id}`}
+                            data-target={sol.id}
+                        >
+                            <span class="sol-tab-num">{sol.num}</span>
+                            <span class="sol-tab-label">{sol.label}</span>
+                            <span class="sol-tab-dot" aria-hidden="true"></span>
+                        </button>
+                    ))
+                }
             </div>
 
-            <div id="idSectionTwo" class="section-card hidden" role="tabpanel">
-                <div class="section-content">
-                    <div class="index-soluciones-image-two"></div>
-                    <div class="w-full h-full sm:px-4 px-2 pt-4">
-                        <h2 class="font-semibold"> Diseño de paginas web </h2>
-                        <h4 class="text-gray-400 font-medium"> Blogs personales / Paginas informativas </h4>
-                        <div class="mt-4">
-                            Las paginas web son las caras de las empresas y de emprendedores en línea.
-                            ¡Date a conocer en internet! Nuestros expertos diseñaran la mejor pagina acorde a tu requerimientos.
-                            Sino tienes ideas para tu pagina web, NO TE PREOCUPES, nosotros te daremos propuestas y aportaremos ideas que te ayuden a esclarecer las necesidades de tu negocio.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="idSectionThree" class="section-card hidden" role="tabpanel">
-                <div class="section-content">
-                    <div class="w-full h-full sm:px-4 px-2 pb-4">
-                        <h2 class="font-semibold"> Dominios y correos para empresas </h2>
-                        <h4 class="text-gray-400 font-medium"> Dominio.com / correo@Dominio.com </h4>
-                        <div class="mt-4">
-                            <div class="mb-4">
-                                Con el diseño de tu pagina web, se debe tener un espacio para colocarlo.
-                                Todas las paginas en internet tienen un dominio... Y TU PUEDES OBTENER EL TUYO.
-                                Obtén tu dominio administrado por nuestro equipo para colocar tu pagina web en línea.
+            <div class="solutions-panels">
+                {
+                    soluciones.map((sol, i) => (
+                        <div
+                            class={"sol-panel" + (i === 0 ? " active panel-enter" : "")}
+                            id={`sol-panel-${sol.id}`}
+                            role="tabpanel"
+                            aria-labelledby={`sol-tab-${sol.id}`}
+                        >
+                            <div class="sol-panel-body">
+                                <span class="sol-panel-tag">{sol.tag}</span>
+                                <h3>{sol.title}</h3>
+                                <p>{sol.description}</p>
+                                <ul class="sol-panel-list">
+                                    {sol.items.map((item) => (
+                                        <li>
+                                            <span class="check">
+                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+                                            </span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <div>
-                                Obtén además un correo personalizado para con tu nombre de dominio,
-                                para que puedas usarlo para tus contactos y darle un toque mas profesional.
+                            <div class="sol-panel-meta">
+                                <span class="meta-title">En resumen</span>
+                                {sol.meta.map((row) => (
+                                    <div class="meta-row">
+                                        <strong>{row.label}</strong>
+                                        <span>{row.value}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    </div>
-                    <div class="index-soluciones-image-three"></div>
-                </div>
-            </div>
-
-            <div id="idSectionFour" class="section-card hidden" role="tabpanel">
-                <div class="section-content" >
-                    <div class="index-soluciones-image-four"></div>
-                    <div class="w-full h-full sm:px-4 px-2 pt-4">
-                        <h2 class="font-semibold"> Soporte técnico especializado </h2>
-                        <h4 class="text-gray-400 font-medium"> Capacitación y asistencia en nuestros sistemas </h4>
-                        <div class="mt-4">
-                            Nuestro equipo esta preparado para brindar asistencia personalizada en cualquier duda que pueda surgir sobre el camino.
-                            Para los sistemas que ofrecemos, se brinda una capacitación por área para su uso.
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
             </div>
         </div>
     </section>
 
     <!-- Cómo trabajamos -->
-    <section class="bg-gray-50 px-8 sm:px-16 py-16">
-        <h2 class="text-center text-3xl mb-2">Cómo trabajamos</h2>
-        <p class="text-center text-gray-500 mb-12">
-            Un proceso claro, de la idea a la puesta en marcha.
-        </p>
-        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section class="bg-white px-8 sm:px-16 py-16">
+        <h2 class="text-center text-3xl mb-12">Un proceso claro, de principio a fin</h2>
+        <div class="steps max-w-6xl mx-auto" style={`--steps-count:${proceso.length}`}>
             {
-                proceso.map((paso) => (
-                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6">
-                        <span class="block text-4xl font-bold text-brand-500 mb-3">{paso.num}</span>
-                        <h3 class="font-semibold mb-2">{paso.title}</h3>
-                        <p class="text-gray-600 text-sm">{paso.text}</p>
+                proceso.map((paso, idx) => (
+                    <div class="step reveal" style={`--i:${idx}`}>
+                        <span class="num">{paso.num}</span>
+                        <h3>{paso.title}</h3>
+                        <p>{paso.text}</p>
                     </div>
                 ))
             }
         </div>
     </section>
 
-    <!-- Lo que puedo construir -->
+    <!-- Lo que construimos -->
     <section class="px-8 sm:px-16 py-16">
-        <h2 class="text-center text-3xl mb-2">Lo que puedo construir para tu empresa</h2>
+        <h2 class="text-center text-3xl mb-2">Lo que construimos para tu empresa</h2>
         <p class="text-center text-gray-500 mb-12">
-            Sistemas administrativos y financieros probados en operación real.
+            Seis formas de quitarte trabajo manual de encima — cada una puede ir sola o como parte de un sistema completo.
         </p>
         <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-                construir.map((item) => (
-                    <div class="bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 flex items-start gap-4">
-                        <div class="bg-brand-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                construir.map((item, idx) => (
+                    <div class="cdx-card reveal bg-white rounded-lg border border-slate-200 shadow shadow-brand-200 p-6 flex items-start gap-4" style={`--i:${idx}`}>
+                        <div class="cdx-icon bg-brand-600 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                             <i class={item.icon} />
                         </div>
                         <div>
@@ -290,75 +410,25 @@ const clientes = ["Gordo y San Pancho", "Ximar Construcciones"];
         </div>
     </section>
 
-    <!-- Clientes -->
-    <section class="bg-gray-50 px-8 sm:px-16 py-16">
-        <h2 class="text-center text-3xl mb-2">Empresas que confían en Codexart</h2>
-        <p class="text-center text-gray-500 mb-10">
-            Negocios que ya trabajan con nuestras soluciones.
-        </p>
-        <div class="flex flex-wrap justify-center items-center gap-6">
-            {
-                clientes.map((cliente) => (
-                    <div class="bg-white border border-slate-200 rounded-xl shadow shadow-brand-200 px-8 py-5 text-gray-700 font-semibold">
-                        {cliente}
-                    </div>
-                ))
-            }
-        </div>
-    </section>
-
-    <!-- Franja de tecnologías -->
-    <section class="px-8 sm:px-16 py-16">
-        <h2 class="text-center text-3xl mb-2">Tecnologías que usamos</h2>
-        <p class="text-center text-gray-500 mb-10">
-            Herramientas modernas para construir soluciones rápidas, seguras y escalables.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-            {
-                techStack.map((tech) => (
-                    <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl shadow shadow-brand-200 px-5 py-3">
-                        <i class={tech.icon + " text-2xl text-brand-600"}></i>
-                        <span class="font-semibold text-gray-700">{tech.name}</span>
-                    </div>
-                ))
-            }
-        </div>
-    </section>
-
-    <!-- Detrás de Codexart -->
-    <section class="bg-gray-50 px-8 sm:px-16 py-16">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl mb-4">Detrás de Codexart</h2>
-            <p class="text-lg text-gray-600 mb-8">
-                Soy Rubén Vázquez, desarrollador Full Stack en Tabasco. Codexart es mi marca personal,
-                con la que pongo mi experiencia en software empresarial al servicio de tu negocio.
-            </p>
-            <a href="/nosotros" class="cdx-button">
-                <i class="fa-solid fa-user mr-2"></i>
-                Conóceme
-            </a>
-        </div>
-    </section>
-
     <!-- Llamado a la acción final -->
-    <section class="px-8 sm:px-16 py-16">
-        <div class="max-w-4xl mx-auto text-center rounded-2xl shadow shadow-brand-200 border border-slate-200 p-10 sm:p-14 bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 text-white">
-            <h2 class="text-3xl font-bold mb-4">¿Listo para llevar tu negocio al siguiente nivel?</h2>
-            <p class="text-lg mb-8 text-white/90">
-                Cuéntanos tu idea y diseñamos la solución a la medida de tu empresa.
+    <section>
+        <div class="cta-final">
+            <h2 class="text-3xl font-bold mb-4">¿Tienes un proceso que te quita más tiempo del que debería?</h2>
+            <p class="text-lg mb-8 max-w-lg mx-auto">
+                Cuéntanos cómo trabaja tu negocio hoy. Juntos vemos qué tiene sentido mejorar primero.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contactanos" class="bg-white text-brand-700 px-8 py-3 rounded-md font-bold transition-colors hover:bg-gray-100">
-                    <i class="fa-solid fa-paper-plane mr-2"></i>
-                    Contáctanos
+                <a href="/contactanos" class="inline-flex items-center justify-center gap-2 bg-amber-400 text-ink-950 px-8 py-3 rounded-full font-bold transition-colors hover:bg-amber-300">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Cuéntanos qué necesitas
                 </a>
                 <a
-                    href="https://wa.me/529931830220"
+                    href="https://wa.me/529937212616"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="bg-emerald-600 text-white px-8 py-3 rounded-md font-bold transition-colors hover:bg-emerald-700"
+                    class="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-8 py-3 rounded-full font-bold transition-colors hover:bg-emerald-700"
                 >
-                    <i class="fa-brands fa-whatsapp mr-2"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
                     Escríbenos por WhatsApp
                 </a>
             </div>
@@ -367,30 +437,54 @@ const clientes = ["Gordo y San Pancho", "Ximar Construcciones"];
 </Layout>
 
 <script>
-    // Simple tab switching without React
-    document.querySelectorAll('[role="tab"]').forEach((tab) => {
-        tab.addEventListener("click", (e) => {
-            e.preventDefault();
-            const targetValue = tab.getAttribute("href")?.substring(1);
-            const targetId = targetValue ?? "";
+    // Selector de "Nuestras soluciones"
+    const solSelector = document.getElementById("solSelector");
+    if (solSelector) {
+        const tabs = solSelector.querySelectorAll(".sol-tab");
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-target");
+                tabs.forEach((t) => {
+                    const isActive = t === tab;
+                    t.classList.toggle("active", isActive);
+                    t.setAttribute("aria-selected", isActive ? "true" : "false");
+                });
 
-            // Hide all tab panels
-            document.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
-                if (panel.id == targetId) {
-                    panel.classList.remove("hidden");
-                } else {
-                    panel.classList.add("hidden");
+                let nextPanel = null;
+                solSelector.querySelectorAll(".sol-panel").forEach((panel) => {
+                    const isTarget = panel.id === `sol-panel-${target}`;
+                    panel.classList.toggle("active", isTarget);
+                    // Se quita la clase de animación en todos los paneles para poder
+                    // reiniciarla en el que quede activo, aunque ya se haya mostrado antes.
+                    panel.classList.remove("panel-enter");
+                    if (isTarget) nextPanel = panel;
+                });
+
+                if (nextPanel) {
+                    // Forzar reflow para que la animación vuelva a correr desde cero.
+                    void nextPanel.offsetWidth;
+                    nextPanel.classList.add("panel-enter");
                 }
             });
-
-            // Show target panel
-            document.getElementById(targetId)?.classList.remove("hidden");
-
-            // Update active tab styling
-            document.querySelectorAll('[role="tab"]').forEach((t) => {
-                t.setAttribute("aria-current", "false");
-            });
-            tab.setAttribute("aria-current", "page");
         });
-    });
+    }
+
+    // Aparición escalonada de tarjetas al entrar en el viewport.
+    const revealEls = document.querySelectorAll(".reveal");
+    if (revealEls.length && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+    } else {
+        revealEls.forEach((el) => el.classList.add("in-view"));
+    }
 </script>

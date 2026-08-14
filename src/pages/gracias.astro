@@ -1,0 +1,58 @@
+---
+// src/pages/gracias.astro
+// Página de agradecimiento a la que Netlify Forms redirige tras un envío exitoso.
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex" />
+		<link rel="icon" type="image/svg+xml" href="/logos/logo.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<title>¡Gracias por escribirnos! | Codexart</title>
+	</head>
+	<body class="min-h-screen flex items-center justify-center text-center px-6 text-white gracias-bg">
+		<div class="max-w-lg">
+			<div class="w-16 h-16 rounded-full bg-amber-400/15 text-amber-400 flex items-center justify-center mx-auto mb-6">
+				<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+			</div>
+			<h1 class="text-3xl sm:text-4xl font-semibold">¡Gracias por escribirnos!</h1>
+			<p class="mt-4 text-brand-300">
+				Tu mensaje ya llegó directo a Codexart. Te responderemos por correo en menos de 24 horas
+				hábiles — si tu proyecto es urgente, también puedes escribir por WhatsApp.
+			</p>
+			<div class="flex flex-wrap justify-center gap-4 mt-8">
+				<a href="/" class="inline-flex items-center gap-2 bg-amber-400 text-ink-950 px-6 py-3 rounded-full font-bold transition-colors hover:bg-amber-300">
+					Volver al inicio
+				</a>
+				<a
+					href="https://wa.me/529937212616"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-2 border border-white/35 text-white px-6 py-3 rounded-full font-bold transition-colors hover:border-white hover:bg-white/10"
+				>
+					Escribir por WhatsApp
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	.gracias-bg {
+		background: radial-gradient(120% 140% at 15% 0%, var(--color-ink-800) 0%, var(--color-ink-950) 60%);
+		color: #fff;
+	}
+
+	.gracias-bg h1 {
+		color: #fff;
+	}
+</style>

@@ -23,12 +23,12 @@ const stripSlash = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
     </div>
 
     <nav class="hidden md:block">
-        <ul class="flex space-x-4">
+        <ul class="flex space-x-4 font-medium">
             {menuItems.map(item => {
                 const isActive = stripSlash(currentPath) === stripSlash(item.href);
                 return (
-                    <li class={'cursor-pointer ' + (isActive ? 'border-b-2 border-b-brand-500' : '')} id={item.name}>
-                        <a href={item.href} class={'block pb-2 px-4 rounded-lg transition-colors hover:bg-brand-100 hover:text-brand-600' + (isActive ? ' text-brand-600' : '')}>
+                    <li class={'cursor-pointer ' + (isActive ? 'border-b-2 border-b-amber-400' : '')} id={item.name}>
+                        <a href={item.href} class={'block pb-2 px-4 rounded-lg transition-colors hover:bg-brand-100 hover:text-brand-600' + (isActive ? ' text-brand-600' : ' text-ink-800')}>
                             {item.name}
                         </a>
                     </li>

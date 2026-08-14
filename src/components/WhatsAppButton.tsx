@@ -4,7 +4,7 @@ import type { FC } from 'react';
 const WhatsAppButton: FC = () => {
   return (
     <a
-      href="https://wa.me/9931830220"
+      href="https://wa.me/529937212616"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"

@@ -1,55 +1,61 @@
 ---
 // src/components/Footer.astro
+const socialItems = [
+    { name: 'Facebook',  href: 'https://facebook.com/codexart.dev',         icon: 'fa-brands fa-facebook-f' },
+    { name: 'Instagram', href: 'https://instagram.com/codexart.dev',        icon: 'fa-brands fa-instagram'  },
+    { name: 'LinkedIn',  href: 'https://linkedin.com/company/codexart.dev', icon: 'fa-brands fa-linkedin-in'},
+    { name: 'YouTube',   href: 'https://youtube.com/codexart',              icon: 'fa-brands fa-youtube'    },
+];
 ---
 
-<footer class="bg-gray-800 text-white pt-8">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="space-y-4">
+<footer class="bg-ink-950 text-brand-300 pt-16">
+    <div class="container mx-auto px-8 sm:px-16 grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr] gap-10 pb-10 border-b border-white/10">
+        <div>
             <img
                 src="/logos/codexart_white.svg"
                 alt="CodexArt Logo"
                 class="h-10"
             />
-            <p class="text-gray-300">Codexart - Coding to the stars 💫🚀</p>
+            <p class="mt-3 font-mono text-sm text-brand-300">Codexart - Coding to the stars 💫🚀</p>
+            <p class="mt-5 text-sm leading-relaxed text-brand-300">
+                Tabasco, México<br />
+                contacto@codexart.com<br />
+                +52 993 721 2616<br />
+                RFC: CID240924518
+            </p>
+            <div class="flex gap-3 mt-5">
+                {socialItems.map(item => (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.name}
+                        class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center transition-colors hover:border-amber-400 hover:text-amber-400">
+                        <i class={item.icon}></i>
+                    </a>
+                ))}
+            </div>
         </div>
 
-        <div class="space-y-4">
-            <h3 class="text-lg font-semibold">Contacto</h3>
-            <p class="text-gray-300">Tabasco, México</p>
-            <p class="text-gray-300">RFC: CID240924518</p>
-            <p class="text-gray-300">contacto@codexart.com</p>
+        <div>
+            <h3 class="font-mono text-xs uppercase tracking-wider text-slate-300 mb-4">Navegación</h3>
+            <ul class="space-y-2 text-sm">
+                <li><a href="/" class="hover:text-white transition-colors">Inicio</a></li>
+                <li><a href="/servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                <li><a href="/nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+                <li><a href="/contactanos" class="hover:text-white transition-colors">Contáctanos</a></li>
+            </ul>
         </div>
 
-        <div class="space-y-4">
-            <h3 class="text-lg font-semibold">Enlaces rápidos</h3>
-            <ul class="space-y-2">
-                <li>
-                    <a href="/" class="text-gray-300 hover:text-white">Inicio</a
-                    >
-                </li>
-                <li>
-                    <a href="/servicios" class="text-gray-300 hover:text-white"
-                        >Servicios</a
-                    >
-                </li>
-                <li>
-                    <a href="/nosotros" class="text-gray-300 hover:text-white"
-                        >Nosotros</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="/contactanos"
-                        class="text-gray-300 hover:text-white">Contáctanos</a
-                    >
-                </li>
+        <div>
+            <h3 class="font-mono text-xs uppercase tracking-wider text-slate-300 mb-4">Servicios</h3>
+            <ul class="space-y-2 text-sm">
+                <li><a href="/servicios" class="hover:text-white transition-colors">Sistemas ERP</a></li>
+                <li><a href="/servicios" class="hover:text-white transition-colors">Diseño web</a></li>
+                <li><a href="/servicios" class="hover:text-white transition-colors">Dominios y correo</a></li>
+                <li><a href="/servicios" class="hover:text-white transition-colors">Soporte técnico</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="bg-gray-900 text-center py-4 mt-8">
-        <p>
-            &copy; {new Date().getFullYear()} CodexArt. Todos los derechos reservados.
-        </p>
+    <div class="container mx-auto px-8 sm:px-16 py-6 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-slate-300">
+        <span>&copy; {new Date().getFullYear()} Codexart. Todos los derechos reservados.</span>
+        <span>Hecho por Rubén Vázquez en Tabasco, México.</span>
     </div>
 </footer>
